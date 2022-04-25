@@ -1,3 +1,7 @@
 # Team3
-first edit
-LJ
+Hospital Slasher
+Text Based adventure game.
+by 
+Team3 - LJ,TH,ZT
+
+
