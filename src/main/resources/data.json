@@ -1,0 +1,19 @@
+{
+  "Beach": {
+    "name": "Beach",
+    "description": "description"
+  },
+  "Lobby": {
+    "name": "Lobby",
+    "description": "description"
+  },
+  "Waiting Room": {
+    "name": "Waiting Room",
+    "description": "description",
+    "npc": "Larson"
+  },
+  "Doctors Office": {
+    "name": "Doctors Office",
+    "description": "description"
+  }
+}
