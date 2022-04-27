@@ -2,7 +2,7 @@
 ![Screenshot 2022-04-26 130021](https://user-images.githubusercontent.com/58896705/165383697-7379922e-e783-4c08-a190-ca1b4ec00829.jpg)
 
 
-Force Majuer
+Force Majuere
 Text Based adventure game.
 by Team3 - LJ,TH,ZT
 
