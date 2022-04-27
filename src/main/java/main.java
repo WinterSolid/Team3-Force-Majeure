@@ -1,5 +1,9 @@
+import java.io.IOException;
+
 public class main {
     public static void main(String[] args) {
-        System.out.println("game running");
+
+        Game game = new Game();
+        game.runGame();
     }
 }
