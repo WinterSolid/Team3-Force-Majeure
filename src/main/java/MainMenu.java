@@ -1,10 +1,11 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
+/*
+ * MainMenu displays main menu for the user, first screen user sees when starting app.
+ * When user finishes game it will bring him back to the main menu
+ */
 public class MainMenu {
-
-
 
     void showMainMenu() throws IOException {
         boolean runGame = true;
@@ -13,6 +14,11 @@ public class MainMenu {
         while (runGame) {
             TextParser.textInputMainMenu();
 //          TODO GAME FUNCTION GOES HERE
+//
+//            for testing verbs
+//            String response = TextParser.gameScannerInput();
+//            TextParser.gameScannerOutput(response);
+
         }
     }
 

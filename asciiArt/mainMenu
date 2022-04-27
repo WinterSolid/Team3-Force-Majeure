@@ -14,6 +14,6 @@
      Welcome to text based Island adventure game. Where you try to escapte the island.
      WILL ADD BETTER DESCRIPTION
 
-             Please select [1,2]:
-             1 Start New Game
-             2 Quit
+             Please select [start,quit]:
+             [start] New Game
+             [quit]
