@@ -9,7 +9,8 @@
   },
   "Waiting Room": {
     "name": "Waiting Room",
-    "description": "description"
+    "description": "description",
+    "npc": "Larson"
   },
   "Doctors Office": {
     "name": "Doctors Office",
