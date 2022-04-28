@@ -1,7 +1,12 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Room {
-    public String name = null;
-    public String description = null;
-    public String npc = null;
+    public String name;
+    public String description;
+    public String npc;
+    public HashMap<String, String> directions;
+    public HashMap<String, String> looking;
 
     String getName() {
         return this.name;
@@ -13,5 +18,9 @@ public class Room {
 
     String getNpc() {
         return this.npc;
+    }
+
+    String getRoomNameFromDirections(String direction) {
+        return directions.get(direction);
     }
 }

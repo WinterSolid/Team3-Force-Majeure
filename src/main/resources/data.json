@@ -3,7 +3,7 @@
     "name": "Water Wreckage",
     "description": "description",
     "directions": {
-      "north": "Water2",
+      "north": "Beach",
       "south": "Cant go that way",
       "east": "Cant go that way",
       "west": "Cant go that way"
@@ -18,7 +18,7 @@
   "Beach": {
     "name": "Beach",
     "description": "description",
-    "Directions": {
+    "directions": {
       "north": "Hospital",
       "south": "Water",
       "east": "Boat",
@@ -34,7 +34,7 @@
   "Boat": {
     "name": "Boat",
     "description": "description",
-    "Directions": {
+    "directions": {
       "north": "nothing",
       "south": "nothing",
       "east": "nothing",
@@ -63,10 +63,10 @@
       "west": "??"
     }
   },
-  "NorthHalL": {
+  "NorthHall": {
     "name": "North Hallway",
     "description": "description",
-    "Directions": {
+    "directions": {
       "north": "Hallway",
       "south": "lobby",
       "east": "nothing",
@@ -79,10 +79,10 @@
       "west": "Dirty Wall"
     }
   },
-  "NorthHalL2": {
+  "NorthHall2": {
     "name": "North Hallway",
     "description": "description",
-    "Directions": {
+    "directions": {
       "north": "Doctors office",
       "south": "Hallway",
       "east": "nothing",
@@ -95,10 +95,10 @@
       "west": "see a west hallway"
     }
   },
-  "WestHalLway": {
+  "WestHallway": {
     "name": "West Hallway",
     "description": "description",
-    "Directions": {
+    "directions": {
       "north": "nothing",
       "south": "nothing",
       "east": "NorthHallway",
@@ -111,27 +111,11 @@
       "west": "Waiting Room"
     }
   },
-  "WestHalLway": {
-    "name": "West Hallway",
-    "description": "description",
-    "Directions": {
-      "north": "nothing",
-      "south": "nothing",
-      "east": "NorthHallway",
-      "west": "Waiting Room"
-    },
-    "looking": {
-        "north": "nothing",
-        "south": "nothing",
-        "east": "The North hallway",
-        "west": "Waiting Room"
-      }
-    },
   "Waiting Room": {
     "name": "Waiting Room",
     "description": "description",
     "npc": "Larson",
-    "Directions": {
+    "directions": {
       "north": "nothing",
       "south": "nothing",
       "east": "WestHallway",
@@ -147,7 +131,7 @@
   "Doctors Office": {
     "name": "Doctors Office",
     "description": "description",
-    "Directions": {
+    "directions": {
       "north": "nothing",
       "south": "NorthHallway",
       "east": "nothing",
