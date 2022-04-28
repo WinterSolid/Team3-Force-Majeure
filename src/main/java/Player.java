@@ -7,7 +7,7 @@ public class Player {
 //    TODO prob should not hardcode this
 //    Setting Beach since that is our starting location
 //    Variables
-    String playerLocation = "Beach";
+    Room curRoom;
     ArrayList<String> inventory = new ArrayList<>();
     String playerMap = Files.readString(Path.of("asciiArt/playerMap"));
 
@@ -20,6 +20,7 @@ public class Player {
 
 //    Business Methods
     public void readMap() {
+        String playerLocation = getCurRoom().getName();
         if (inventory.contains("map")){
             System.out.println(playerMap.replace(playerLocation+"[ ]", playerLocation+"[X]"));
         }
@@ -38,12 +39,12 @@ public class Player {
     }
 
 
-    public String getPlayerLocation() {
-        return playerLocation;
+    public Room getCurRoom() {
+        return curRoom;
     }
 
-    public void setPlayerLocation(String playerLocation) {
-        this.playerLocation = playerLocation;
+    public void setCurRoom(Room room) {
+        this.curRoom = room;
     }
 
 
