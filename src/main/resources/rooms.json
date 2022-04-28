@@ -3,7 +3,7 @@
     "name": "Water Wreckage",
     "description": "description",
     "directions": {
-      "north": "Water2",
+      "north": "Water",
       "south": "Cant go that way",
       "east": "Cant go that way",
       "west": "Cant go that way"
@@ -11,6 +11,22 @@
     "looking": {
       "north": "A small island ahead",
       "south": "nothing,but Water for as far as the eyes can see",
+      "east": "nothing,but Water for as far as the eyes can see",
+      "west": "nothing,but Water for as far as the eyes can see"
+    }
+  },
+  "Water": {
+    "name": "Water",
+    "description": "description",
+    "directions": {
+      "north": "Beach",
+      "south": "Water Wreckage",
+      "east": "Cant go that way",
+      "west": "Cant go that way"
+    },
+    "looking": {
+      "north": "A small island ahead",
+      "south": "nothing,but the sinking wreckage of Boat",
       "east": "nothing,but Water for as far as the eyes can see",
       "west": "nothing,but Water for as far as the eyes can see"
     }
