@@ -32,7 +32,6 @@ class GameData {
 //                System.out.println("got npc");
 //            }
 //        }
-//        System.out.println(roomMap.get("Beach"));
         return roomMap;
     }
 

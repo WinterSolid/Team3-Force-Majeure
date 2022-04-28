@@ -3,12 +3,12 @@ import java.util.Map;
 
 public class Game {
 
-    void runGame() throws IOException {
+    void runGame() throws Exception {
         // get roomMap
         GameData gameData = new GameData();
         Map<String, Room> roomMap = gameData.loadGame();
         // get starting room ("Water")
-        Room startRoom = roomMap.get("Water");
+        Room startRoom = roomMap.get("Water Wreckage");
         // init Player
         Player player = new Player();
         // set player's current room to start room
@@ -23,17 +23,17 @@ public class Game {
         }
 
         //        Start Game
-//        Print Game Plot
 //        TODO add game plot
-        System.out.println("This is our game plot. FIX ME!!!");
+//        System.out.println("This is our game plot. FIX ME!!!");
+
         boolean gameRunning = true;
         while (gameRunning) {
-            System.out.println("here");
+            System.out.println("Current Room=" + player.getCurRoom().getName());
 //            Player Location
 //            player.getCurRoom();
 //            prompt User
             String response = TextParser.gameScannerInput();
-            TextParser.gameScannerOutput(response, player);
+            TextParser.gameScannerOutput(response, player, roomMap);
         }
     }
 }

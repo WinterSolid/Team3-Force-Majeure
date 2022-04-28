@@ -8,16 +8,8 @@ import java.nio.file.Path;
 public class MainMenu {
 
     void showMainMenu() throws IOException {
-        boolean runGame = true;
         welcome();
-//
-        while (runGame) {
-            String startGame = TextParser.textInputMainMenu();
-
-            if (startGame.equals("game")) {
-                runGame = false;
-            }
-//
+        TextParser.textInputMainMenu();
 //      for testing verbs
 //      String response = TextParser.gameScannerInput();
 //      TextParser.gameScannerOutput(response, player1);
@@ -25,7 +17,7 @@ public class MainMenu {
 //      Player player1 = new Player();
 //      player1.readMap();
 
-        }
+
     }
 
     private void welcome() throws IOException {
