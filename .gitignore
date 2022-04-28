@@ -112,6 +112,7 @@ hs_err_pid*
 # IntelliJ
 .idea/*
 /out/
+.idea/*
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

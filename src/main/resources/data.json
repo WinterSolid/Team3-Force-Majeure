@@ -1,0 +1,163 @@
+{
+  "Water Wreckage": {
+    "name": "Water Wreckage",
+    "description": "description",
+    "directions": {
+      "north": "Water2",
+      "south": "Cant go that way",
+      "east": "Cant go that way",
+      "west": "Cant go that way"
+    },
+    "looking": {
+      "north": "A small island ahead",
+      "south": "nothing,but Water for as far as the eyes can see",
+      "east": "nothing,but Water for as far as the eyes can see",
+      "west": "nothing,but Water for as far as the eyes can see"
+    }
+  },
+  "Beach": {
+    "name": "Beach",
+    "description": "description",
+    "Directions": {
+      "north": "Hospital",
+      "south": "Water",
+      "east": "Boat",
+      "west": "Cant go that way"
+    },
+    "looking": {
+      "north": "A small island ahead you see a building",
+      "south": "Water, you just left",
+      "east": "A hospital boat",
+      "west": "nothing,but empty beach"
+    }
+  },
+  "Boat": {
+    "name": "Boat",
+    "description": "description",
+    "Directions": {
+      "north": "nothing",
+      "south": "nothing",
+      "east": "nothing",
+      "west": "Beach"
+    },
+    "looking": {
+      "north": "nothing but water",
+      "south": "nothing but water",
+      "east": "nothing but water",
+      "west": "beach access to hospital"
+    }
+  },
+  "Lobby": {
+    "name": "lobby",
+    "description": "description",
+    "directions": {
+      "north": "North Hallway",
+      "south": "Beach",
+      "east": "nothing",
+      "west": "Beach"
+    },
+    "looking": {
+      "north": "See a Hallway",
+      "south": "look out doors to see beach",
+      "east": "????",
+      "west": "??"
+    }
+  },
+  "NorthHalL": {
+    "name": "North Hallway",
+    "description": "description",
+    "Directions": {
+      "north": "Hallway",
+      "south": "lobby",
+      "east": "nothing",
+      "west": "nothing"
+    },
+    "looking": {
+      "north": "See Hallway",
+      "south": "See the lobby",
+      "east": "Dirty Wall",
+      "west": "Dirty Wall"
+    }
+  },
+  "NorthHalL2": {
+    "name": "North Hallway",
+    "description": "description",
+    "Directions": {
+      "north": "Doctors office",
+      "south": "Hallway",
+      "east": "nothing",
+      "west": "West Hallway"
+    },
+    "looking": {
+      "north": "See a Room labeled Doctor's Office",
+      "south": "Hallway",
+      "east": "dirty wall",
+      "west": "see a west hallway"
+    }
+  },
+  "WestHalLway": {
+    "name": "West Hallway",
+    "description": "description",
+    "Directions": {
+      "north": "nothing",
+      "south": "nothing",
+      "east": "NorthHallway",
+      "west": "Waiting Room"
+    },
+    "looking": {
+      "north": "nothing",
+      "south": "nothing",
+      "east": "The North hallway",
+      "west": "Waiting Room"
+    }
+  },
+  "WestHalLway": {
+    "name": "West Hallway",
+    "description": "description",
+    "Directions": {
+      "north": "nothing",
+      "south": "nothing",
+      "east": "NorthHallway",
+      "west": "Waiting Room"
+    },
+    "looking": {
+        "north": "nothing",
+        "south": "nothing",
+        "east": "The North hallway",
+        "west": "Waiting Room"
+      }
+    },
+  "Waiting Room": {
+    "name": "Waiting Room",
+    "description": "description",
+    "npc": "Larson",
+    "Directions": {
+      "north": "nothing",
+      "south": "nothing",
+      "east": "WestHallway",
+      "west": "nothing"
+    },
+    "looking": {
+      "north": "nothing",
+      "south": "nothing",
+      "east": "The west hallway",
+      "west": "nothing"
+    }
+  },
+  "Doctors Office": {
+    "name": "Doctors Office",
+    "description": "description",
+    "Directions": {
+      "north": "nothing",
+      "south": "NorthHallway",
+      "east": "nothing",
+      "west": "nothing"
+    },
+    "looking": {
+      "north": "nothing",
+      "south": "The North hallway",
+      "east": "nothing",
+      "west": "nothing"
+    }
+  }
+}

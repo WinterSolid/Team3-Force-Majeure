@@ -1,0 +1,15 @@
+Help Screen:
+    use verb + noun
+
+    List of Verbs:
+    go ---- Moves player, must be used with noun
+            (ex: go north)
+    look -- allows player to look closely at object for description
+            (ex: look inventory)
+
+    use --- Use item in location to trigger an event
+            (ex: use seadollar)
+
+    Other Commands:
+    help -- gives you this help screen
+    quit -- quits game and exits program
