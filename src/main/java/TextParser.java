@@ -6,7 +6,10 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class TextParser {
 //    INSTANCE VARIABLES
@@ -41,7 +44,7 @@ public class TextParser {
         String userInput = "";
         while (2 != userInput.split(" ").length){
             System.out.print(">:");
-            userInput = scanner.nextLine().toLowerCase().stripLeading().stripTrailing();
+            userInput = scanner.nextLine().toLowerCase().strip();
             if (userInput.equals("help")){
                 System.out.println(helpBanner);
             }
@@ -58,29 +61,21 @@ public class TextParser {
     }
 
 //      Parse through user input
-    public static void gameScannerOutput(String gameInput, Player player){
+    public static void gameScannerOutput(String gameInput, Player player, Map<String, Room> roomMap)
+            throws Exception {
 //        variables
         String verb = gameInput.split(" ")[0];
         String noun = gameInput.split(" ")[1];
-//        possible verbs user can use. If you update this please update /asciiArt/help thank.
-//        TODO need to add method for moving player in here
-        if (verb.contains("go")) {
-                switch (noun){
-                    case "north":
-                        System.out.println("walking north");
-                        break;
-                    case "east":
-                        System.out.println("walking east");
-                        break;
-                    case "south":
-                        System.out.println("walking south");
-                        break;
-                    case "west":
-                        System.out.println("walking west");
-                        break;
-                    default:
-                        System.out.println("Please put in valid direction");
+        Map<String,Integer> directions =
+                Map.of("north", 1, "south", 1, "east", 1, "west", 1);
+
+        if (directions.containsKey(noun)) {
+            String nextRoomName = player.getCurRoom().getRoomNameFromDirections(noun);
+            Room nextRoom = roomMap.get(nextRoomName);
+            if (nextRoom == null) {
+                throw new Exception("Room does not exist");
             }
+            player.setCurRoom(nextRoom);
         }
 //        TODO need method to look through user Inventory
         else if(verb.contains("use")){
