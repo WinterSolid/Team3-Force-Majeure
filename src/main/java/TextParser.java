@@ -12,14 +12,17 @@ public class TextParser {
 //    INSTANCE VARIABLES
     static Scanner scanner = new Scanner(System.in);
 
-//    Main Menu text parser
+    //    Main Menu text parser
     public static String textInputMainMenu(){
-        String userInput = "";
-        while (2 != userInput.split(" ").length){
+        String userInput = "  ";
+        while (1 != userInput.split(" ").length){
             System.out.print(">:");
             userInput = scanner.nextLine().toLowerCase().stripLeading().stripTrailing();
             if (userInput.equals("start")){
-                System.out.println("staring game");
+                userInput = "game";
+//                if we have a method that will
+//                1. print current location
+//                2. It will put the text parser into a for ever loop while the game is over
             }
             else if (userInput.equals("quit")){
                 System.out.println("Exiting the game");

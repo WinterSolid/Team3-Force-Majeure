@@ -22,7 +22,18 @@ public class Game {
             e.printStackTrace();
         }
 
-
+        //        Start Game
+//        Print Game Plot
+//        TODO add game plot
+        System.out.println("This is our game plot. FIX ME!!!");
+        boolean gameRunning = true;
+        while (gameRunning) {
+            System.out.println("here");
+//            Player Location
+//            player.getCurRoom();
+//            prompt User
+            String response = TextParser.gameScannerInput();
+            TextParser.gameScannerOutput(response, player);
+        }
     }
-
 }

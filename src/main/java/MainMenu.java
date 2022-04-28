@@ -12,8 +12,11 @@ public class MainMenu {
         welcome();
 //
         while (runGame) {
-            TextParser.textInputMainMenu();
-//          TODO GAME FUNCTION GOES HERE
+            String startGame = TextParser.textInputMainMenu();
+
+            if (startGame.equals("game")) {
+                runGame = false;
+            }
 //
 //      for testing verbs
 //      String response = TextParser.gameScannerInput();
@@ -29,6 +32,5 @@ public class MainMenu {
         String banner = Files.readString(Path.of("asciiArt/mainMenu"));
         System.out.println(banner);
     }
-
 
 }
