@@ -7,7 +7,7 @@ public class Player {
 //    TODO prob should not hardcode this
 //    Setting Beach since that is our starting location
 //    Variables
-    String playerLocation = "Beach";
+    String playerLocation = "Water";
     ArrayList<String> inventory = new ArrayList<>();
     String playerMap = Files.readString(Path.of("asciiArt/playerMap"));
 
