@@ -1,7 +1,5 @@
-![TEAM3](https://user-images.githubusercontent.com/58896705/165383689-f1d84033-dc21-42cf-b32d-6f4f2a16b170.jpg)
-![Screenshot 2022-04-26 130021](https://user-images.githubusercontent.com/58896705/165383697-7379922e-e783-4c08-a190-ca1b4ec00829.jpg)
-
-
+![Forcemajuereasc](https://user-images.githubusercontent.com/58896705/165836891-5f721fbf-7f8d-454e-ad41-e3256233bcd1.jpg)
+![Screenshot 2022-04-28 144723](https://user-images.githubusercontent.com/58896705/165836966-605e0e44-dbf6-479b-bebc-b6ed029a8fe5.jpg)
 Force Majuere
 Text Based adventure game.
 by Team3 - LJ,TH,ZT
