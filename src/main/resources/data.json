@@ -1,10 +1,23 @@
 {
+  "Water": {
+    "name": "Water",
+    "description": "description",
+    "description2": "description"
+  },
   "Beach": {
+    "name": "Beach",
+    "description": "description"
+  },
+  "Boat": {
     "name": "Beach",
     "description": "description"
   },
   "Lobby": {
     "name": "Lobby",
+    "description": "description"
+  },
+  "Hallway": {
+    "name": "Hallway",
     "description": "description"
   },
   "Waiting Room": {
