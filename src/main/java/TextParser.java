@@ -55,7 +55,7 @@ public class TextParser {
     }
 
 //      Parse through user input
-    public static void gameScannerOutput(String gameInput){
+    public static void gameScannerOutput(String gameInput, Player player){
 //        variables
         String verb = gameInput.split(" ")[0];
         String noun = gameInput.split(" ")[1];
@@ -80,19 +80,25 @@ public class TextParser {
             }
         }
 //        TODO need method to look through user Inventory
-        else if(gameInput.contains("use")){
+        else if(verb.contains("use")){
             System.out.println("USE needs a method that will search inventory");
 
         }
 //        TODO need method to look through user Inventory Description
-        else if(gameInput.contains("look")){
-            System.out.println("Look needs a method that will look at invetory item description");
+        else if(verb.contains("look")) {
+            switch (noun) {
+                case "inventory":
+                    System.out.println(player.getInventory());
+                    break;
+                default:
+                    System.out.println("I dont know about this items");
 
+            }
         }
 
         else{
 //            If its not a correct answer just tell user
-            System.out.println(gameInput + " not valid response if need help please say help");
+            System.out.println(gameInput + " not valid response if need help please say help1");
         }
     }
 }
