@@ -10,14 +10,17 @@ public class MainMenu {
     void showMainMenu() throws IOException {
         boolean runGame = true;
         welcome();
-
+//
         while (runGame) {
             TextParser.textInputMainMenu();
 //          TODO GAME FUNCTION GOES HERE
 //
-//            for testing verbs
-//            String response = TextParser.gameScannerInput();
-//            TextParser.gameScannerOutput(response);
+//      for testing verbs
+//      String response = TextParser.gameScannerInput();
+//      TextParser.gameScannerOutput(response, player1);
+//      for testing player
+//      Player player1 = new Player();
+//      player1.readMap();
 
         }
     }

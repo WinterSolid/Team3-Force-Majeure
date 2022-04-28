@@ -5,7 +5,8 @@ Help Screen:
     go ---- Moves player, must be used with noun
             (ex: go north)
     look -- allows player to look closely at object for description
-            (ex: look seadollar)
+            (ex: look inventory)
+
     use --- Use item in location to trigger an event
             (ex: use seadollar)
 
