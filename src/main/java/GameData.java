@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.util.*;
 
 class GameData {
-    void loadGame() {
+    Map<String, Room> loadGame() {
         Map<String, Room> roomMap = null;
         Map<String, NPC> npcMap = null;
 
@@ -25,12 +25,15 @@ class GameData {
             throw new RuntimeException("Unable to load game data");
         }
 
-        for (var entry : roomMap.entrySet()) {
-            System.out.println(entry.getValue().getNpc());
-            if ("npc".equals(entry.getKey())) {
-                System.out.println("got npc");
-            }
-        }
+        // loop thru roomMap and check for npc's
+//        for (var entry : roomMap.entrySet()) {
+//            System.out.println(entry.getValue().getNpc());
+//            if ("npc".equals(entry.getKey())) {
+//                System.out.println("got npc");
+//            }
+//        }
+//        System.out.println(roomMap.get("Beach"));
+        return roomMap;
     }
 
     Map<String, ?> readJsonFileAndConvertToMap(String fileName, String objectType) {
