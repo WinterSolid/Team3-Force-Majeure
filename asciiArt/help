@@ -1,0 +1,24 @@
+Help Screen:
+------------------------------------------------------------------------------------
+    List of Verbs:
+    Following verbs help player navigate the world. Verbs should be used with
+    verb + noun
+    go ---- Moves player, must be used with noun
+            (ex: go north)
+    look -- allows player to look closely at object for description
+            (ex: look inventory)
+
+    use --- Use item in location to trigger an event
+            (ex: use seadollar)
+
+    Map:
+    Helps player navigate the world.
+    look map --- pulls up the player map. X on map indicates current player location.
+    Inventory:
+    Is a collection of user items.
+    look inventory --- lets you see all game items collected
+
+    Other Commands:
+    help -- gives you this help screen
+    quit -- quits game and exits program
+====================================================================================
