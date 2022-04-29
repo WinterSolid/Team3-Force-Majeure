@@ -23,6 +23,7 @@ public class Room {
     String getRoomNameFromDirections(String direction) {
         return directions.get(direction);
     }
+
     String getLookingDirection(String lookings){
         return looking.get(lookings);
     }

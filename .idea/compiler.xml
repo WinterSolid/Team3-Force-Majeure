@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Team3" target="11" />
       <module name="Team3-Force-Majeure" target="11" />
     </bytecodeTargetLevel>
   </component>
