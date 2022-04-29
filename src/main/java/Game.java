@@ -15,7 +15,7 @@ public class Game {
         GameData gameData = new GameData();
         Map<String, Room> roomMap = gameData.roomMap;
         // get starting room ("Water")
-        Room startRoom = roomMap.get("Water Wreckage");
+        Room startRoom = roomMap.get("WaterWreckage");
         // init Player
         Player player = new Player();
         // set player's current room to start room
@@ -37,7 +37,7 @@ public class Game {
 //            Player Location
             System.out.println("Current Room=" + player.getCurRoom().getName());
             // print description
-            System.out.println("Description=" + startRoom.getDescription());
+            System.out.println("Description=" + player.getCurRoom().getDescription());
 //            Give player a description of current area
 //            *CODE HERE*
 //            prompt User

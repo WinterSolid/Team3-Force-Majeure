@@ -21,7 +21,7 @@ class GameData {
         try {
             roomMap =
                     (Map<String, Room>) readJsonFileAndConvertToMap(
-                            "data.json", "room");
+                            "rooms.json", "room");
             npcMap =
                     (Map<String, NPC>) readJsonFileAndConvertToMap(
                             "npcs.json", "npc");

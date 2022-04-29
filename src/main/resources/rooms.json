@@ -1,7 +1,7 @@
 {
   "WaterWreckage": {
     "name": "Water Wreckage",
-    "description": "description",
+    "description": "You look around and notice you are in the water in boat wreckage,\nyou look down and notice you were floating on a sign, it says Larson's discount boat tours.\"",
     "directions": {
       "north": "Beach",
       "south": "nothing",
@@ -19,7 +19,7 @@
     "name": "Beach",
     "description": "description",
     "directions": {
-      "north": "Hospital",
+      "north": "Lobby",
       "south": "Water",
       "east": "Boat",
       "west": "nothing"
@@ -48,10 +48,10 @@
     }
   },
   "Lobby": {
-    "name": "lobby",
+    "name": "Lobby",
     "description": "description",
     "directions": {
-      "north": "North Hallway",
+      "north": "NorthHallway",
       "south": "Beach",
       "east": "nothing",
       "west": "nothing"
@@ -63,11 +63,11 @@
       "west": "Trash and garbage"
     }
   },
-  "NorthHall": {
-    "name": "North Hallway",
+  "NorthHallway": {
+    "name": "NorthHallway",
     "description": "description",
     "directions": {
-      "north": "Hallway",
+      "north": "NorthHall2",
       "south": "lobby",
       "east": "nothing",
       "west": "nothing"
@@ -80,13 +80,13 @@
     }
   },
   "NorthHall2": {
-    "name": "North Hallway",
+    "name": "NorthHall2",
     "description": "description",
     "directions": {
-      "north": "Doctors office",
-      "south": "Hallway",
+      "north": "DoctorsOffice",
+      "south": "NorthHallway",
       "east": "nothing",
-      "west": "West Hallway"
+      "west": "WestHallway"
     },
     "looking": {
       "north": "See a Room labeled Doctor's Office",
@@ -96,13 +96,13 @@
     }
   },
   "WestHallway": {
-    "name": "West Hallway",
+    "name": "WestHallway",
     "description": "description",
     "directions": {
       "north": "nothing",
       "south": "nothing",
-      "east": "North Hallway",
-      "west": "Waiting Room"
+      "east": "NorthHall2",
+      "west": "WaitingRoom"
     },
     "looking": {
       "north": "nothing",
@@ -112,7 +112,7 @@
     }
   },
   "WaitingRoom": {
-    "name": "Waiting Room",
+    "name": "WaitingRoom",
     "description": "description",
     "npc": "Larson",
     "directions": {
@@ -128,12 +128,12 @@
       "west": "nothing"
     }
   },
-  "Doctors Office": {
-    "name": "Doctors Office",
+  "DoctorsOffice": {
+    "name": "DoctorsOffice",
     "description": "description",
     "directions": {
       "north": "nothing",
-      "south": "North Hallway",
+      "south": "NorthHall2",
       "east": "nothing",
       "west": "nothing"
     },
