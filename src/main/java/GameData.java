@@ -8,15 +8,23 @@ import java.nio.file.Path;
 import java.util.*;
 
 class GameData {
-    Map<String, Room> loadGame() {
-        Map<String, Room> roomMap = null;
-        Map<String, NPC> npcMap = null;
+    Map<String, Room> roomMap;
+    Map<String, NPC> npcMap;
+
+    public GameData() {
+        loadGame();
+    }
+
+    @SuppressWarnings("unchecked")
+    void loadGame() {
 
         try {
             roomMap =
-                    (Map<String, Room>) readJsonFileAndConvertToMap("data.json", "room");
+                    (Map<String, Room>) readJsonFileAndConvertToMap(
+                            "data.json", "room");
             npcMap =
-                    (Map<String, NPC>) readJsonFileAndConvertToMap("npcs.json", "npc");
+                    (Map<String, NPC>) readJsonFileAndConvertToMap(
+                            "npcs.json", "npc");
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -32,7 +40,6 @@ class GameData {
 //                System.out.println("got npc");
 //            }
 //        }
-        return roomMap;
     }
 
     Map<String, ?> readJsonFileAndConvertToMap(String fileName, String objectType) {
