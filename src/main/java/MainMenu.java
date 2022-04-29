@@ -8,8 +8,16 @@ import java.nio.file.Path;
 public class MainMenu {
 
     void showMainMenu() throws IOException {
+        boolean runGame = true;
+
         welcome();
-        TextParser.textInputMainMenu();
+//      keeps prompting user for valid response
+        while (runGame) {
+            String startGame = TextParser.textInputMainMenu();
+            if (startGame.equals("game")) {
+                runGame = false;
+            }
+        }
 //      for testing verbs
 //      String response = TextParser.gameScannerInput();
 //      TextParser.gameScannerOutput(response, player1);

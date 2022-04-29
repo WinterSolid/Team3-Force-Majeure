@@ -53,9 +53,9 @@ public class TextParser {
                 System.out.println("Exiting the game");
                 System.exit(0);
             }
-            else {
-                System.out.println(userInput + " not valid response if need help please say help");
-            }
+//            else {
+//                System.out.println(userInput + " not valid response if need help please say help");
+//            }
         }
         return userInput;
     }
@@ -69,7 +69,7 @@ public class TextParser {
         Map<String,Integer> directions =
                 Map.of("north", 1, "south", 1, "east", 1, "west", 1);
 
-        if (directions.containsKey(noun)) {
+        if (verb.contains("go") && directions.containsKey(noun)) {
             String nextRoomName = player.getCurRoom().getRoomNameFromDirections(noun);
             Room nextRoom = roomMap.get(nextRoomName);
             if (nextRoom == null) {
@@ -87,6 +87,15 @@ public class TextParser {
             switch (noun) {
                 case "inventory":
                     System.out.println(player.getInventory());
+                    break;
+                case "map":
+                    player.readMap();
+                case "north":
+                case "east":
+                case "south":
+                case "west":
+                    String lookingDirection = player.getCurRoom().getLookingDirection(noun);
+                    System.out.println(lookingDirection);
                     break;
                 default:
                     System.out.println("I dont know about this items");
