@@ -27,8 +27,8 @@ public class Player {
         else{
             System.out.println("I dont see map in your inventory");
         }
-
     }
+
 //  Getter and Setter
     public ArrayList<String> getInventory() {
         return inventory;

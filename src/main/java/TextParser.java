@@ -90,6 +90,7 @@ public class TextParser {
                     break;
                 case "map":
                     player.readMap();
+                    break;
                 case "north":
                 case "east":
                 case "south":
