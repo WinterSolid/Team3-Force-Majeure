@@ -1,7 +1,14 @@
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Map;
 
 public class Game {
+    String gameIntro = Files.readString(Path.of("asciiArt/intro"));
+
+    //  IO exception is for helpBanner read
+    public Game() throws IOException {
+    }
 
     void runGame() throws Exception {
         // get roomMap
@@ -23,8 +30,7 @@ public class Game {
         }
 
 //        Start Game
-//        TODO add game plot
-        System.out.println("This is our game plot. FIX ME!!!");
+        System.out.println(gameIntro);
 
         boolean gameRunning = true;
         while (gameRunning) {
@@ -32,9 +38,8 @@ public class Game {
             System.out.println("Current Room=" + player.getCurRoom().getName());
             // print description
             System.out.println("Description=" + startRoom.getDescription());
-
-//            Show user where they can go Compass
 //            Give player a description of current area
+//            *CODE HERE*
 //            prompt User
             String response = TextParser.gameScannerInput();
             TextParser.gameScannerOutput(response, player, roomMap);
