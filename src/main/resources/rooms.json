@@ -1,7 +1,7 @@
 {
   "Water Wreckage": {
     "name": "Water Wreckage",
-    "description": "description",
+    "description": "You awake to water splashing you in the face you look around and notice you are in the water in boat wreckage, you look down and notice you were floating on a sign, it says , Larson's discount boat tours.",
     "directions": {
       "north": "Water",
       "south": "Cant go that way",
@@ -17,7 +17,7 @@
   },
   "Water": {
     "name": "Water",
-    "description": "description",
+    "description": "You look off in a distance and notice a island with a large structure on it.",
     "directions": {
       "north": "Beach",
       "south": "Water Wreckage",
@@ -33,7 +33,7 @@
   },
   "Beach": {
     "name": "Beach",
-    "description": "description",
+    "description": "On the beach you see a abandoned building north, that looks like an old hospital and a old Hospital boat east.",
     "Directions": {
       "north": "Hospital",
       "south": "Water",
@@ -41,7 +41,7 @@
       "west": "Cant go that way"
     },
     "looking": {
-      "north": "A small island ahead you see a building",
+      "north": "You see a building, looks like a hospital",
       "south": "Water, you just left",
       "east": "A hospital boat",
       "west": "nothing,but empty beach"
@@ -63,9 +63,9 @@
       "west": "beach access to hospital"
     }
   },
-  "Lobby": {
-    "name": "lobby",
-    "description": "description",
+  "Hospital": {
+    "name": "hospital lobby",
+    "description": "You are in the lobby of the hospital. You see worn furniture and an information stand.",
     "directions": {
       "north": "North Hallway",
       "south": "Beach",
@@ -79,28 +79,28 @@
       "west": "??"
     }
   },
-  "NorthHalL": {
+  "North Hallway": {
     "name": "North Hallway",
     "description": "description",
     "Directions": {
-      "north": "Hallway",
+      "north": "North Hallway2",
       "south": "lobby",
       "east": "nothing",
       "west": "nothing"
     },
     "looking": {
-      "north": "See Hallway",
+      "north": "Long North Hallway",
       "south": "See the lobby",
       "east": "Dirty Wall",
       "west": "Dirty Wall"
     }
   },
-  "NorthHalL2": {
+  "North Hallway2": {
     "name": "North Hallway",
     "description": "description",
     "Directions": {
       "north": "Doctors office",
-      "south": "Hallway",
+      "south": "North Hallway",
       "east": "nothing",
       "west": "West Hallway"
     },
@@ -111,7 +111,7 @@
       "west": "see a west hallway"
     }
   },
-  "WestHalLway": {
+  "West Hallway": {
     "name": "West Hallway",
     "description": "description",
     "Directions": {
@@ -127,30 +127,14 @@
       "west": "Waiting Room"
     }
   },
-  "WestHalLway": {
-    "name": "West Hallway",
-    "description": "description",
-    "Directions": {
-      "north": "nothing",
-      "south": "nothing",
-      "east": "NorthHallway",
-      "west": "Waiting Room"
-    },
-    "looking": {
-        "north": "nothing",
-        "south": "nothing",
-        "east": "The North hallway",
-        "west": "Waiting Room"
-      }
-    },
   "Waiting Room": {
     "name": "Waiting Room",
-    "description": "description",
+    "description": "You see a bunch of chairs scattered across the room, there is one upright chair in the center.",
     "npc": "Larson",
     "Directions": {
       "north": "nothing",
       "south": "nothing",
-      "east": "WestHallway",
+      "east": "West Hallway",
       "west": "nothing"
     },
     "looking": {
@@ -162,10 +146,10 @@
   },
   "Doctors Office": {
     "name": "Doctors Office",
-    "description": "description",
+    "description": "You enter the Doctors Office, everybody is panicking and they don’t know what to do. You hear Larson say in confusion and in pain Where is my Code. My environment does not work, help a brother out Doctors look at you and ask, Are you an SDE? The Doctor says his Junit is not imported and there are red lines everywhere. There seems to be an error on line 14 Pepsi is not defined. Can you help? We are only doctors and understand human issues.",
     "Directions": {
       "north": "nothing",
-      "south": "NorthHallway",
+      "south": "North Hallway2",
       "east": "nothing",
       "west": "nothing"
     },
