@@ -71,8 +71,9 @@ public class TextParser {
         if (verb.contains("go") && directions.containsKey(noun)) {
             String nextRoomName = player.getCurRoom().getRoomNameFromDirections(noun);
             Room nextRoom = roomMap.get(nextRoomName);
-            if (nextRoom == null) {
-                throw new Exception("Room does not exist");
+            if (nextRoom == null || "nothing".equals(nextRoomName)) {
+                System.out.println("Can't go that way");
+                return;
             }
             player.setCurRoom(nextRoom);
         }
