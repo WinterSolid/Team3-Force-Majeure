@@ -4,7 +4,7 @@
     "description": "description",
     "directions": {
       "north": "Beach",
-      "south": "Cant go that way",
+      "south": "nothing",
       "east": "Cant go that way",
       "west": "Cant go that way"
     },
