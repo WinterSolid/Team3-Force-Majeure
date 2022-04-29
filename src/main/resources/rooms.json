@@ -81,7 +81,7 @@
   },
   "North Hallway": {
     "name": "North Hallway",
-    "description": "description",
+    "description": "You start walking down the beginning of the north hallway, you hear the faint sounds of voices.",
     "Directions": {
       "north": "North Hallway2",
       "south": "lobby",
@@ -97,7 +97,7 @@
   },
   "North Hallway2": {
     "name": "North Hallway",
-    "description": "description",
+    "description": "You continue down the north hallway and the sounds become louder coming from a unknown location.",
     "Directions": {
       "north": "Doctors office",
       "south": "North Hallway",
