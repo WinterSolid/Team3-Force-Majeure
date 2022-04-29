@@ -6,7 +6,7 @@ public class Game {
     void runGame() throws Exception {
         // get roomMap
         GameData gameData = new GameData();
-        Map<String, Room> roomMap = gameData.loadGame();
+        Map<String, Room> roomMap = gameData.roomMap;
         // get starting room ("Water")
         Room startRoom = roomMap.get("Water Wreckage");
         // init Player
@@ -30,6 +30,9 @@ public class Game {
         while (gameRunning) {
 //            Player Location
             System.out.println("Current Room=" + player.getCurRoom().getName());
+            // print description
+            System.out.println("Description=" + startRoom.getDescription());
+
 //            Show user where they can go Compass
 //            Give player a description of current area
 //            prompt User
