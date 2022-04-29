@@ -110,6 +110,7 @@ hs_err_pid*
 ## Plugin-specific files:
 
 # IntelliJ
+.idea/*
 /out/
 .idea/*
 

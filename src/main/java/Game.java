@@ -22,15 +22,16 @@ public class Game {
             e.printStackTrace();
         }
 
-        //        Start Game
+//        Start Game
 //        TODO add game plot
-//        System.out.println("This is our game plot. FIX ME!!!");
+        System.out.println("This is our game plot. FIX ME!!!");
 
         boolean gameRunning = true;
         while (gameRunning) {
-            System.out.println("Current Room=" + player.getCurRoom().getName());
 //            Player Location
-//            player.getCurRoom();
+            System.out.println("Current Room=" + player.getCurRoom().getName());
+//            Show user where they can go Compass
+//            Give player a description of current area
 //            prompt User
             String response = TextParser.gameScannerInput();
             TextParser.gameScannerOutput(response, player, roomMap);
