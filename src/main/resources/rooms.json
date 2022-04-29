@@ -70,7 +70,7 @@
       "north": "North Hallway",
       "south": "Beach",
       "east": "nothing",
-      "west": "Beach"
+      "west": "nothing"
     },
     "looking": {
       "north": "See a Hallway",
@@ -107,7 +107,7 @@
     "looking": {
       "north": "See a Room labeled Doctor's Office",
       "south": "Hallway",
-      "east": "dirty wall",
+      "east": "nothing",
       "west": "see a west hallway"
     }
   },
