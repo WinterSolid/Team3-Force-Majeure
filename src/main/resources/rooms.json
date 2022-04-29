@@ -1,12 +1,12 @@
 {
-  "Water Wreckage": {
+  "WaterWreckage": {
     "name": "Water Wreckage",
     "description": "description",
     "directions": {
       "north": "Beach",
-      "south": "Cant go that way",
-      "east": "Cant go that way",
-      "west": "Cant go that way"
+      "south": "nothing",
+      "east": "nothing",
+      "west": "nothing"
     },
     "looking": {
       "north": "A small island ahead",
@@ -22,7 +22,7 @@
       "north": "Hospital",
       "south": "Water",
       "east": "Boat",
-      "west": "Cant go that way"
+      "west": "nothing"
     },
     "looking": {
       "north": "A small island ahead you see a building",
@@ -54,13 +54,13 @@
       "north": "North Hallway",
       "south": "Beach",
       "east": "nothing",
-      "west": "Beach"
+      "west": "nothing"
     },
     "looking": {
       "north": "See a Hallway",
       "south": "look out doors to see beach",
-      "east": "????",
-      "west": "??"
+      "east": "Trash and garbage",
+      "west": "Trash and garbage"
     }
   },
   "NorthHall": {
@@ -101,7 +101,7 @@
     "directions": {
       "north": "nothing",
       "south": "nothing",
-      "east": "NorthHallway",
+      "east": "North Hallway",
       "west": "Waiting Room"
     },
     "looking": {
@@ -111,7 +111,7 @@
       "west": "Waiting Room"
     }
   },
-  "Waiting Room": {
+  "WaitingRoom": {
     "name": "Waiting Room",
     "description": "description",
     "npc": "Larson",
@@ -133,7 +133,7 @@
     "description": "description",
     "directions": {
       "north": "nothing",
-      "south": "NorthHallway",
+      "south": "North Hallway",
       "east": "nothing",
       "west": "nothing"
     },
