@@ -18,8 +18,8 @@ public class FileResourceUtils {
         return INSTANCE;
     }
 
-    public String getFileAsStringFromResourceStream(String fileName) {
-        ClassLoader classLoader = getClass().getClassLoader();
+    public static String getFileAsStringFromResourceStream(String fileName) {
+        ClassLoader classLoader = Main.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream(fileName);
         Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
 

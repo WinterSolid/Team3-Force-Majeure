@@ -22,8 +22,6 @@ public class MainMenu {
 //      for testing player
 //      Player player1 = new Player();
 //      player1.readMap();
-
-
     }
 
     private void welcome() {
