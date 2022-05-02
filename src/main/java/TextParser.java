@@ -82,15 +82,44 @@ public class TextParser {
             player.setCurRoom(nextRoom);
         }
 //        TODO need method to look through user Inventory
-        else if (verb.contains("use")){
-            System.out.println("USE needs a method that will search inventory");
+        else if(verb.contains("use")){
+            switch (noun){
+                case "pepsimachine":
+                    if (player.getCurRoom().description.contains("pepsimachine") &&
+                            player.inventory.getInventory().contains("sanddollar")){
+                        System.out.println("You got a pepsi");
+                        player.inventory.appendInventory("pepsi");
+                        player.inventory.removeItemInventory("sanddollar");
+                        System.out.println("sanddollar removed");
 
+                    }
+                    else if(player.getCurRoom().description.contains("pepsimachine")
+                            && !player.inventory.getInventory().contains("sanddollar")){
+                        System.out.println("Vending Mactine takes sanddollars does not look like " +
+                                "you have any in inventory");
+                    }
+                    else{
+                        System.out.println("Vending Machine?");
+                    }
+                    break;
+                case "larson":
+                    if (player.getCurRoom().getItem().contains("larson")){
+//                        TODO add flag that will figure out if user has given Larson pepsi
+                        System.out.println("Larsons joins you");
+                    }
+                    else{
+                        System.out.println("Larson?");
+                    }
+                    break;
+                default:
+                    System.out.println(noun + "?");
+            }
         }
 //        used to look around and look through items / inventory
         else if (verb.contains("look")) {
             switch (noun) {
                 case "inventory":
-                    System.out.println(player.getInventory());
+                    System.out.println(player.inventory.getInventory());
                     break;
                 case "map":
                     player.readMap();
@@ -117,6 +146,21 @@ public class TextParser {
                 System.out.println("You cannot talk to that person.");
             } else {
                 npcMap.get(titleCasedName).speak();
+            }
+        }
+        else if(verb.contains("get")) {
+//          Check if item in room
+            if (noun.equals(player.getCurRoom().getItem())){
+                System.out.println("You picked up " + noun);
+//                add item to player inventory
+                player.inventory.appendInventory(noun);
+//                remove item from room
+                player.curRoom.removeItem(noun);
+
+            }
+            else{
+                System.out.println("no item in room");
+                System.out.println(player.getCurRoom().getItem());
             }
         }
 

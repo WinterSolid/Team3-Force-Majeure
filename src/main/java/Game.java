@@ -40,10 +40,13 @@ public class Game {
 //            Player Location
             System.out.println("Current Room=" + curRoom.getName());
             // print description
-            System.out.println("Description=" + curRoom.getDescription());
+
+            System.out.println("Description=" + player.getCurRoom().getDescription());
             if (curRoom.getNpcs() != null) {
-                System.out.println("NPCs=" + List.of(curRoom.getNpcs()));
+              System.out.println("NPCs=" + List.of(curRoom.getNpcs()));
             }
+//            print items
+            System.out.println("items= " + player.getCurRoom().getItem());
 
 //            Give player a description of current area
 //            *CODE HERE*
