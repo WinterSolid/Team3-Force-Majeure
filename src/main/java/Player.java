@@ -1,6 +1,5 @@
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class Player {
@@ -9,12 +8,12 @@ public class Player {
 //    Variables
     Room curRoom;
     ArrayList<String> inventory = new ArrayList<>();
-    String playerMap = Files.readString(Path.of("asciiArt/playerMap"));
-
+    String playerMap;
 
 //    Constructor
-    public Player() throws IOException {
+    public Player() throws IOException, URISyntaxException {
 //        starting player off with map for right now
+        this.playerMap = Data.textMap.get("playerMap");
         inventory.add("map");
     }
 
@@ -22,7 +21,8 @@ public class Player {
     public void readMap() {
         String playerLocation = getCurRoom().getName();
         if (inventory.contains("map")){
-            System.out.println(playerMap.replace(playerLocation+"[ ]", playerLocation+"[X]"));
+            System.out.println(playerMap.replace(playerLocation+"[ ]",
+                    playerLocation+"[X]"));
         }
         else{
             System.out.println("I dont see map in your inventory");
