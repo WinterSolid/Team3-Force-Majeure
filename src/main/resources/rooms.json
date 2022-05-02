@@ -31,7 +31,10 @@
       "east": "A hospital boat",
       "west": "nothing,but empty beach"
     },
-    "item": "sanddollar"
+    "item": "sanddollar",
+    "npcs": [
+      "Larson"
+    ]
   },
   "Boat": {
     "name": "Boat",

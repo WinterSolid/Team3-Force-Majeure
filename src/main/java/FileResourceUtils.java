@@ -9,13 +9,26 @@ import java.util.Objects;
 
 public class FileResourceUtils {
 
-    private static final FileResourceUtils INSTANCE =
-            new FileResourceUtils();
-
     private FileResourceUtils() {}
 
-    public static FileResourceUtils getInstance() {
-        return INSTANCE;
+    public static String getFileAsStringFromResourceStream(String fileName) {
+        ClassLoader classLoader = Main.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(fileName);
+        Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
+
+        try {
+            char[] buffer = new char[4096];
+            StringBuilder builder = new StringBuilder();
+            int numChars;
+
+            while ((numChars = reader.read(buffer)) >= 0) {
+                builder.append(buffer, 0, numChars);
+            }
+            return builder.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 //    public void getFileFromResourceAndPrint(String fileName)
@@ -54,24 +67,4 @@ public class FileResourceUtils {
 //    private String getFileAsString(File file) throws IOException {
 //        return Files.readString(file.toPath());
 //    }
-
-    public String getFileAsStringFromResourceStream(String fileName) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(fileName);
-        Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
-        try {
-            char[] buffer = new char[4096];
-            StringBuilder builder = new StringBuilder();
-            int numChars;
-
-            while ((numChars = reader.read(buffer)) >= 0) {
-                builder.append(buffer, 0, numChars);
-            }
-
-            return builder.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

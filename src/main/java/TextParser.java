@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -63,7 +64,7 @@ public class TextParser {
 
 //    Actions on 2 word commands must be used with gameScannerInput()
 //    TODO combine with gameScannerInput()
-    public static void gameScannerOutput(String gameInput, Player player, Map<String, Room> roomMap) {
+    public static void gameScannerOutput(String gameInput, Player player, Map<String, Room> roomMap, Map<String, NPC> npcMap) {
 //      Verb being first word and Noun second word
         String verb = gameInput.split(" ")[0];
         String noun = gameInput.split(" ")[1];
@@ -91,7 +92,6 @@ public class TextParser {
                         player.inventory.removeItemInventory("sanddollar");
                         System.out.println("sanddollar removed");
 
-
                     }
                     else if(player.getCurRoom().description.contains("pepsimachine")
                             && !player.inventory.getInventory().contains("sanddollar")){
@@ -116,7 +116,7 @@ public class TextParser {
             }
         }
 //        used to look around and look through items / inventory
-        else if(verb.contains("look")) {
+        else if (verb.contains("look")) {
             switch (noun) {
                 case "inventory":
                     System.out.println(player.inventory.getInventory());
@@ -133,8 +133,19 @@ public class TextParser {
                     System.out.println(lookingDirection);
                     break;
                 default:
-                    System.out.println("I dont know about this items");
+                    System.out.println("You cannot interact with that item.");
 
+            }
+        } else if ("talk".equals(verb)) {
+            Room curRoom = player.curRoom;
+            String titleCasedName = noun.substring(0, 1).toUpperCase() + noun.substring(1).toLowerCase();
+
+            if (curRoom.getNpcs() == null || curRoom.getNpcs().size() == 0) {
+                System.out.println("There is no one to talk to.");
+            } else if (!curRoom.getNpcs().contains(titleCasedName)) {
+                System.out.println("You cannot talk to that person.");
+            } else {
+                npcMap.get(titleCasedName).speak();
             }
         }
         else if(verb.contains("get")) {
@@ -153,9 +164,9 @@ public class TextParser {
             }
         }
 
-        else{
+        else {
 //            If its not a correct answer just tell user
-            System.out.println(gameInput + " not valid response if need help please say help");
+            System.out.println(gameInput + " is not valid command, enter help to see commands");
         }
     }
 }
