@@ -9,14 +9,7 @@ import java.util.Objects;
 
 public class FileResourceUtils {
 
-    private static final FileResourceUtils INSTANCE =
-            new FileResourceUtils();
-
     private FileResourceUtils() {}
-
-    public static FileResourceUtils getInstance() {
-        return INSTANCE;
-    }
 
     public static String getFileAsStringFromResourceStream(String fileName) {
         ClassLoader classLoader = Main.class.getClassLoader();

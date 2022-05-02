@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -108,12 +109,14 @@ public class TextParser {
             }
         } else if ("talk".equals(verb)) {
             Room curRoom = player.curRoom;
-            if (curRoom.getNpcNames() == null || curRoom.getNpcNames().size() == 0) {
+            String titleCasedName = noun.substring(0, 1).toUpperCase() + noun.substring(1).toLowerCase();
+
+            if (curRoom.getNpcs() == null || curRoom.getNpcs().size() == 0) {
                 System.out.println("There is no one to talk to.");
-            } else if (!curRoom.getNpcNames().contains(noun)) {
+            } else if (!curRoom.getNpcs().contains(titleCasedName)) {
                 System.out.println("You cannot talk to that person.");
             } else {
-                npcMap.get(noun).speak();
+                npcMap.get(titleCasedName).speak();
             }
         }
 

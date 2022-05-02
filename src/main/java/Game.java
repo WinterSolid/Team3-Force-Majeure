@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class Game {
@@ -34,10 +36,15 @@ public class Game {
 
         boolean gameRunning = true;
         while (gameRunning) {
+            Room curRoom = player.getCurRoom();
 //            Player Location
-            System.out.println("Current Room=" + player.getCurRoom().getName());
+            System.out.println("Current Room=" + curRoom.getName());
             // print description
-            System.out.println("Description=" + player.getCurRoom().getDescription());
+            System.out.println("Description=" + curRoom.getDescription());
+            if (curRoom.getNpcs() != null) {
+                System.out.println("NPCs=" + List.of(curRoom.getNpcs()));
+            }
+
 //            Give player a description of current area
 //            *CODE HERE*
 //            prompt User
