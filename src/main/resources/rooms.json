@@ -29,7 +29,10 @@
       "south": "Water, you just left",
       "east": "A hospital boat",
       "west": "nothing,but empty beach"
-    }
+    },
+    "npcs": [
+      "Larson"
+    ]
   },
   "Boat": {
     "name": "Boat",

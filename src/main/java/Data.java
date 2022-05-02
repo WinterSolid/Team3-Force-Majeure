@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Data {
-    public static FileResourceUtils fileResourceUtils;
     public static Map<String, String> textMap;
     public static Map<String, Room> roomMap;
     public static Map<String, NPC> npcMap;
@@ -20,13 +19,12 @@ public class Data {
     private Data() {}
 
     static {
-        fileResourceUtils = FileResourceUtils.getInstance();
         textMap = new HashMap<>();
         roomMap = new HashMap<>();
         npcMap = new HashMap<>();
         loadTextMap();
         loadRoomMap();
-//        loadNPCMap();
+        loadNPCMap();
     }
 
     /*
@@ -39,7 +37,7 @@ public class Data {
             String fileName = "asciiArt/" + name;
             try {
                 String data =
-                        fileResourceUtils.getFileAsStringFromResourceStream(fileName);
+                        FileResourceUtils.getFileAsStringFromResourceStream(fileName);
                 textMap.put(name, data);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -70,7 +68,7 @@ public class Data {
     }
 
     public static void loadNPCMap() {
-        Type type = new TypeToken<Map<String, Room>>() {}.getType();
+        Type type = new TypeToken<Map<String, NPC>>() {}.getType();
 
         try {
             // create Gson instance
