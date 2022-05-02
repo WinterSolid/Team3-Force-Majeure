@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.util.Map;
 
 public class Game {
-    String gameIntro = Files.readString(Path.of("asciiArt/intro"));
+//    String gameIntro = Files.readString(Path.of("asciiArt/intro"));
 
     //  IO exception is for helpBanner read
     public Game() throws IOException {
@@ -12,8 +12,8 @@ public class Game {
 
     void runGame() throws Exception {
         // get roomMap
-        GameData gameData = new GameData();
-        Map<String, Room> roomMap = gameData.roomMap;
+//        GameData gameData = new GameData();
+        Map<String, Room> roomMap = Data.roomMap;
         // get starting room ("Water")
         Room startRoom = roomMap.get("WaterWreckage");
         // init Player
@@ -30,7 +30,7 @@ public class Game {
         }
 
 //        Start Game
-        System.out.println(gameIntro);
+//        System.out.println(gameIntro);
 
         boolean gameRunning = true;
         while (gameRunning) {
