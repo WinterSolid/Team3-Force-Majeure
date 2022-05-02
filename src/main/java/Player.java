@@ -1,5 +1,3 @@
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class Player {
@@ -11,7 +9,7 @@ public class Player {
     String playerMap;
 
 //    Constructor
-    public Player() throws IOException, URISyntaxException {
+    public Player() {
 //        starting player off with map for right now
         this.playerMap = Data.textMap.get("playerMap");
         inventory.add("map");
@@ -47,7 +45,4 @@ public class Player {
     public void setCurRoom(Room room) {
         this.curRoom = room;
     }
-
-
-
 }

@@ -6,8 +6,7 @@ import java.util.Map;
 public class Game {
 //    String gameIntro = Files.readString(Path.of("asciiArt/intro"));
 
-    //  IO exception is for helpBanner read
-    public Game() throws IOException {
+    public Game() {
     }
 
     void runGame() throws Exception {
