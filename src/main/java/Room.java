@@ -1,11 +1,12 @@
 import java.util.HashMap;
+import java.util.List;
 
 public class Room {
     public String name;
     public String description;
-    public String npc;
     public HashMap<String, String> directions;
     public HashMap<String, String> looking;
+    public List<String> npcNames;
 
     String getName() {
         return this.name;
@@ -15,15 +16,15 @@ public class Room {
         return this.description;
     }
 
-    String getNpc() {
-        return this.npc;
-    }
-
     String getRoomNameFromDirections(String direction) {
         return directions.get(direction);
     }
 
     String getLookingDirection(String lookings){
         return looking.get(lookings);
+    }
+
+    List<String> getNpcNames() {
+        return npcNames;
     }
 }
