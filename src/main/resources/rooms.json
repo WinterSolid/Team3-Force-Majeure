@@ -13,11 +13,12 @@
       "south": "nothing,but Water for as far as the eyes can see",
       "east": "nothing,but Water for as far as the eyes can see",
       "west": "nothing,but Water for as far as the eyes can see"
-    }
+    },
+    "item": "none"
   },
   "Beach": {
     "name": "Beach",
-    "description": "description",
+    "description": "description pepsimachine",
     "directions": {
       "north": "Lobby",
       "south": "Water",
@@ -29,7 +30,8 @@
       "south": "Water, you just left",
       "east": "A hospital boat",
       "west": "nothing,but empty beach"
-    }
+    },
+    "item": "sanddollar"
   },
   "Boat": {
     "name": "Boat",
@@ -45,7 +47,8 @@
       "south": "nothing but water",
       "east": "nothing but water",
       "west": "beach access to hospital"
-    }
+    },
+    "item": "none"
   },
   "Lobby": {
     "name": "Lobby",
@@ -61,7 +64,8 @@
       "south": "look out doors to see beach",
       "east": "Trash and garbage",
       "west": "Trash and garbage"
-    }
+    },
+    "item": "none"
   },
   "NorthHallway": {
     "name": "NorthHallway",
@@ -77,7 +81,8 @@
       "south": "See the lobby",
       "east": "Dirty Wall",
       "west": "Dirty Wall"
-    }
+    },
+    "item": "none"
   },
   "NorthHall2": {
     "name": "NorthHall2",
@@ -93,7 +98,8 @@
       "south": "Hallway",
       "east": "dirty wall",
       "west": "see a west hallway"
-    }
+    },
+    "item": "none"
   },
   "WestHallway": {
     "name": "WestHallway",
@@ -109,7 +115,8 @@
       "south": "nothing",
       "east": "The North hallway",
       "west": "Waiting Room"
-    }
+    },
+    "item": "none"
   },
   "WaitingRoom": {
     "name": "WaitingRoom",
@@ -126,7 +133,8 @@
       "south": "nothing",
       "east": "The west hallway",
       "west": "nothing"
-    }
+    },
+    "item": "none"
   },
   "DoctorsOffice": {
     "name": "DoctorsOffice",
@@ -142,6 +150,7 @@
       "south": "The North hallway",
       "east": "nothing",
       "west": "nothing"
-    }
+    },
+    "item": "none"
   }
 }

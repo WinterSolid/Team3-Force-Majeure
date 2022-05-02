@@ -38,6 +38,8 @@ public class Game {
             System.out.println("Current Room=" + player.getCurRoom().getName());
             // print description
             System.out.println("Description=" + player.getCurRoom().getDescription());
+//            print items
+            System.out.println("items= " + player.getCurRoom().getItem());
 //            Give player a description of current area
 //            *CODE HERE*
 //            prompt User
