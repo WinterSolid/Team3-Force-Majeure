@@ -37,4 +37,8 @@ public class NPC {
     public void setEndings(Map<String, String> endings) {
         this.endings = endings;
     }
+
+    public void speak() {
+        System.out.println("Hello I am " + this.getName());
+    }
 }

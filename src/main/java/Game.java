@@ -13,6 +13,7 @@ public class Game {
         // get roomMap
 //        GameData gameData = new GameData();
         Map<String, Room> roomMap = Data.roomMap;
+        Map<String, NPC> npcMap = Data.npcMap;
         // get starting room ("Water")
         Room startRoom = roomMap.get("WaterWreckage");
         // init Player
@@ -41,7 +42,7 @@ public class Game {
 //            *CODE HERE*
 //            prompt User
             String response = TextParser.gameScannerInput();
-            TextParser.gameScannerOutput(response, player, roomMap);
+            TextParser.gameScannerOutput(response, player, roomMap, npcMap);
         }
     }
 }
