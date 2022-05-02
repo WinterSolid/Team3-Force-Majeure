@@ -39,7 +39,7 @@ public class TextParser {
 
 //    Game text parser
     public static String gameScannerInput() throws IOException {
-        String helpBanner = Files.readString(Path.of("asciiArt/help"));
+        String helpBanner = Data.textMap.get("help");
         String userInput = "";
         while (2 != userInput.split(" ").length){
             System.out.print(">:");
@@ -60,8 +60,7 @@ public class TextParser {
     }
 
 //      Parse through user input
-    public static void gameScannerOutput(String gameInput, Player player, Map<String, Room> roomMap)
-            throws Exception {
+    public static void gameScannerOutput(String gameInput, Player player, Map<String, Room> roomMap) {
 //        variables
         String verb = gameInput.split(" ")[0];
         String noun = gameInput.split(" ")[1];
@@ -71,6 +70,7 @@ public class TextParser {
         if (verb.contains("go") && directions.containsKey(noun)) {
             String nextRoomName = player.getCurRoom().getRoomNameFromDirections(noun);
             Room nextRoom = roomMap.get(nextRoomName);
+
             if (nextRoom == null || "nothing".equals(nextRoomName)) {
                 System.out.println("Can't go that way");
                 return;
@@ -90,6 +90,7 @@ public class TextParser {
                     break;
                 case "map":
                     player.readMap();
+                    System.out.println("here");
                     break;
                 case "north":
                 case "east":

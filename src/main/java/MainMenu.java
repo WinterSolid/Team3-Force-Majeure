@@ -1,4 +1,5 @@
-import java.io.IOException;
+import java.io.*;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 /*
@@ -7,7 +8,7 @@ import java.nio.file.Path;
  */
 public class MainMenu {
 
-    void showMainMenu() throws IOException {
+    void showMainMenu() throws IOException, URISyntaxException {
         boolean runGame = true;
 
         welcome();
@@ -28,9 +29,8 @@ public class MainMenu {
 
     }
 
-    private void welcome() throws IOException {
-        String banner = Files.readString(Path.of("asciiArt/mainMenu"));
-        System.out.println(banner);
+    private void welcome() {
+        System.out.println(Data.textMap.get("mainMenu"));
     }
 
 }
