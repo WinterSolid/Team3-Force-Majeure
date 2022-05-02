@@ -16,6 +16,7 @@ public class Player {
     }
 
 //    Business Methods
+//    readMap prints out map for user and replaces location on map with currentRoom he is in with [X]
     public void readMap() {
         String playerLocation = getCurRoom().getName();
         if (inventory.contains("map")){
