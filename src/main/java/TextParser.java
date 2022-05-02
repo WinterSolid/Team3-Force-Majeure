@@ -20,16 +20,16 @@ public class TextParser {
         while (1 != userInput.split(" ").length){
             System.out.print(">:");
             userInput = scanner.nextLine().toLowerCase().stripLeading().stripTrailing();
+//            if user puts start in Main Menu start the game
             if (userInput.equals("start")){
                 userInput = "game";
-//                if we have a method that will
-//                1. print current location
-//                2. It will put the text parser into a for ever loop while the game is over
             }
+//            if user puts quit in Main Menu cleanly exit game
             else if (userInput.equals("quit")){
                 System.out.println("Exiting the game");
                 System.exit(0);
             }
+//            User did not put in valid response
             else{
                 System.out.println(userInput + " Not valid command please put start or quit");
             }
@@ -37,7 +37,8 @@ public class TextParser {
         return userInput;
     }
 
-//    Game text parser
+//    Game text parser runs during game takes 1 word or 2 word commands and if 1 word command executes them
+//    if 2 word command it will pass to gameScannerOutput()
     public static String gameScannerInput() throws IOException {
         String helpBanner = Data.textMap.get("help");
         String userInput = "";
@@ -52,21 +53,23 @@ public class TextParser {
                 System.out.println("Exiting the game");
                 System.exit(0);
             }
-//            else {
-//                System.out.println(userInput + " not valid response if need help please say help");
-//            }
+//            user put in invalid 1 word command
+            else if (1 == userInput.split(" ").length){
+                System.out.println(userInput + " not valid response if need help please say help");
+            }
         }
         return userInput;
     }
 
-//      Parse through user input
+//    Actions on 2 word commands must be used with gameScannerInput()
+//    TODO combine with gameScannerInput()
     public static void gameScannerOutput(String gameInput, Player player, Map<String, Room> roomMap) {
-//        variables
+//      Verb being first word and Noun second word
         String verb = gameInput.split(" ")[0];
         String noun = gameInput.split(" ")[1];
         Map<String,Integer> directions =
                 Map.of("north", 1, "south", 1, "east", 1, "west", 1);
-
+//      Go deals with movement in game verb+noun
         if (verb.contains("go") && directions.containsKey(noun)) {
             String nextRoomName = player.getCurRoom().getRoomNameFromDirections(noun);
             Room nextRoom = roomMap.get(nextRoomName);
@@ -82,7 +85,7 @@ public class TextParser {
             System.out.println("USE needs a method that will search inventory");
 
         }
-//        TODO need method to look through user Inventory Description
+//        used to look around and look through items / inventory
         else if(verb.contains("look")) {
             switch (noun) {
                 case "inventory":
@@ -107,7 +110,7 @@ public class TextParser {
 
         else{
 //            If its not a correct answer just tell user
-            System.out.println(gameInput + " not valid response if need help please say help1");
+            System.out.println(gameInput + " not valid response if need help please say help");
         }
     }
 }
