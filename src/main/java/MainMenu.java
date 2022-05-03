@@ -4,6 +4,7 @@ import java.io.*;
  * When user finishes game it will bring him back to the main menu
  */
 public class MainMenu {
+    private final Audio audio = Audio.getInstance();
 
     void showMainMenu() throws IOException {
         boolean runGame = true;
@@ -14,6 +15,7 @@ public class MainMenu {
             String startGame = TextParser.textInputMainMenu();
             if (startGame.equals("game")) {
                 runGame = false;
+                audio.stop();
             }
         }
     }

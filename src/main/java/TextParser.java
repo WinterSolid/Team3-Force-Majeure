@@ -13,7 +13,8 @@ import java.util.Scanner;
 
 public class TextParser {
 //    INSTANCE VARIABLES
-    static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
+    private final Audio audio = Audio.getInstance();
 
     //    Main Menu text parser
     public static String textInputMainMenu() {

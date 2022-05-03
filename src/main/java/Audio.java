@@ -4,7 +4,7 @@ import java.io.InputStream;
 public class Audio implements Runnable {
     private static final Audio INSTANCE = new Audio();
     private volatile boolean muted = false;
-    public Clip clip;
+    private Clip clip;
 
     private Audio() {}
 
@@ -55,6 +55,13 @@ public class Audio implements Runnable {
 
     public void unMute() {
         setMuted(false);
+    }
+
+    public void stop() {
+        if (clip.isActive()) {
+            clip.stop();
+            clip.close();
+        }
     }
 
     private void setMuted(Boolean muted) {
