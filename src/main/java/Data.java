@@ -12,6 +12,7 @@ import java.util.Objects;
 public class Data {
     public static Map<String, String> textMap;
     public static Map<String, Room> roomMap;
+    public static Map<String, Endings> endingMap;
     public static Map<String, NPC> npcMap;
     public static final String[] TEXT_FILE_NAMES =
             new String[] {"help", "intro", "mainMenu", "playerMap"};
@@ -22,9 +23,12 @@ public class Data {
         textMap = new HashMap<>();
         roomMap = new HashMap<>();
         npcMap = new HashMap<>();
+        endingMap = new HashMap<>();
+
         loadTextMap();
         loadRoomMap();
         loadNPCMap();
+        endingsRoomMap();
     }
 
     /*
@@ -62,6 +66,25 @@ public class Data {
             Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
             // convert to map using gson
             roomMap = gson.fromJson(reader, type);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+//  Endings
+    public static void endingsRoomMap() {
+        Type type = new TypeToken<Map<String, Endings>>() {}.getType();
+
+        try {
+            // create Gson instance
+            Gson gson = new Gson();
+            // get class loader
+            ClassLoader classLoader = Data.class.getClassLoader();
+            // get resource from relative classloader path
+            InputStream inputStream = classLoader.getResourceAsStream("endings.json");
+            // read stream
+            Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
+            // convert to map using gson
+            endingMap = gson.fromJson(reader, type);
         } catch (Exception e) {
             e.printStackTrace();
         }
