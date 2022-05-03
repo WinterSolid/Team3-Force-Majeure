@@ -1,14 +1,12 @@
 import java.io.*;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 /*
  * MainMenu displays main menu for the user, first screen user sees when starting app.
  * When user finishes game it will bring him back to the main menu
  */
 public class MainMenu {
+    private final Audio audio = Audio.getInstance();
 
-    void showMainMenu() throws IOException, URISyntaxException {
+    void showMainMenu() throws IOException {
         boolean runGame = true;
 
         welcome();
@@ -17,20 +15,14 @@ public class MainMenu {
             String startGame = TextParser.textInputMainMenu();
             if (startGame.equals("game")) {
                 runGame = false;
+                audio.stop();
+            } else if (startGame.equals("mute")) {
+                audio.toggleMute();
             }
         }
-//      for testing verbs
-//      String response = TextParser.gameScannerInput();
-//      TextParser.gameScannerOutput(response, player1);
-//      for testing player
-//      Player player1 = new Player();
-//      player1.readMap();
-
-
     }
 
     private void welcome() {
         System.out.println(Data.textMap.get("mainMenu"));
     }
-
 }
