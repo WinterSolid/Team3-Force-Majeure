@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 public class Game {
-//    String gameIntro = Files.readString(Path.of("asciiArt/intro"));
 
+//      Variables
+    boolean gameRunning = true;
+//    constructor
     public Game() {
     }
-
+//    Business methods
     void runGame() throws Exception {
         // get roomMap
 //        GameData gameData = new GameData();
@@ -34,7 +36,7 @@ public class Game {
 //        Start Game
 //        System.out.println(gameIntro);
 
-        boolean gameRunning = true;
+
         while (gameRunning) {
             Room curRoom = player.getCurRoom();
 //            Player Location
@@ -54,5 +56,8 @@ public class Game {
             String response = TextParser.gameScannerInput();
             TextParser.gameScannerOutput(response, player, roomMap, npcMap);
         }
+    }
+    public void setGameRunning(boolean gameRunning) {
+        this.gameRunning = gameRunning;
     }
 }
