@@ -18,7 +18,7 @@
   "Beach": {
     "name": "Beach",
     "description": "description",
-    "items": "sandDollar",
+    "item": "sanddollar",
     "directions": {
       "north": "Lobby",
       "south": "Water",
@@ -50,8 +50,7 @@
   },
   "Lobby": {
     "name": "Lobby",
-    "description": "You are in the dark lobby of the hospital. with a dim light east of room.",
-    "items": "pepsi",
+    "description": "You are in the dark lobby of the hospital. with a dim light east of room. You see a dimmly lit pepsimachine in the corner",
     "directions": {
       "north": "NorthHallway",
       "south": "Beach",
