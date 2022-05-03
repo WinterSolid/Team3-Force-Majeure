@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class TextParser {
-//    INSTANCE VARIABLES
+//    INSTANCE VARIABLESs
     private static final Scanner scanner = new Scanner(System.in);
     private final Audio audio = Audio.getInstance();
 
