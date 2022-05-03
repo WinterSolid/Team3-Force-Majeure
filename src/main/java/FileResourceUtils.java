@@ -41,6 +41,12 @@ public class FileResourceUtils {
         return inputStream;
     }
 
+    public static boolean resourceExists(String fileName) {
+        ClassLoader classLoader = Main.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(fileName);
+        return inputStream != null;
+    }
+
 
 //    private static File getFileFromResource(String fileName)
 //            throws URISyntaxException {
