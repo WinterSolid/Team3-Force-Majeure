@@ -31,6 +31,27 @@ public class FileResourceUtils {
         return null;
     }
 
+    public static InputStream getInputStreamFromResource(String fileName) {
+        ClassLoader classLoader = Main.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(fileName);
+
+        if (inputStream == null) {
+            throw new IllegalArgumentException("file not found! " + fileName);
+        }
+        return inputStream;
+    }
+
+
+//    private static File getFileFromResource(String fileName)
+//            throws URISyntaxException {
+//        ClassLoader classLoader = Main.class.getClassLoader();
+//        URL resource = classLoader.getResource(fileName);
+//        if (resource == null) {
+//            throw new IllegalArgumentException("file not found! " + fileName);
+//        }
+//        return new File(resource.toURI());
+//    }
+
 //    public void getFileFromResourceAndPrint(String fileName)
 //            throws URISyntaxException {
 //        File file = getFileFromResource(fileName);
@@ -41,16 +62,6 @@ public class FileResourceUtils {
 //            throws URISyntaxException, IOException {
 //        File file = getFileFromResource(fileName);
 //        return getFileAsString(file);
-//    }
-
-//    private File getFileFromResource(String fileName)
-//            throws URISyntaxException {
-//        ClassLoader classLoader = getClass().getClassLoader();
-//        URL resource = classLoader.getResource(fileName);
-//        if (resource == null) {
-//            throw new IllegalArgumentException("file not found! " + fileName);
-//        }
-//        return new File(resource.toURI());
 //    }
 
 //    private void printFile(File file) {
