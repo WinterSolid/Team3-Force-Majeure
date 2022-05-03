@@ -57,8 +57,10 @@ public class Game {
           
             if ("mute".equals(response)) {
                 audio.toggleMute();
+            } else {
+                TextParser.gameScannerOutput(response, player, roomMap, npcMap, endingsMap);
             }
-            TextParser.gameScannerOutput(response, player, roomMap, npcMap, endingsMap);
+
         }
     }
     public void setGameRunning(boolean gameRunning) {
