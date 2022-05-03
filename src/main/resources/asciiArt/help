@@ -21,4 +21,5 @@ Help Screen:
     Other Commands:
     help -- gives you this help screen
     quit -- quits game and exits program
+    mute -- mutes game audio
 ====================================================================================

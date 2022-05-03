@@ -13,7 +13,8 @@ import java.util.Scanner;
 
 public class TextParser {
 //    INSTANCE VARIABLES
-    static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
+    private final Audio audio = Audio.getInstance();
 
     //    Main Menu text parser
     public static String textInputMainMenu() {
@@ -29,6 +30,8 @@ public class TextParser {
             else if (userInput.equals("quit")){
                 System.out.println("Exiting the game");
                 System.exit(0);
+            } else if ("mute".equals(userInput)) {
+                return "mute";
             }
 //            User did not put in valid response
             else{
@@ -53,6 +56,8 @@ public class TextParser {
 //                add exiting the game
                 System.out.println("Exiting the game");
                 System.exit(0);
+            } else if ("mute".equals(userInput)) {
+                return "mute";
             }
 //            user put in invalid 1 word command
             else if (1 == userInput.split(" ").length){

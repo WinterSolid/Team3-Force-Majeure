@@ -16,4 +16,5 @@
 
              Please select [start,quit]:
              [start] New Game
-             [quit]
+             [quit] Quit Game
+             [mute] Mute Sound
