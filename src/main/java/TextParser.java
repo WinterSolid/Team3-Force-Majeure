@@ -69,7 +69,7 @@ public class TextParser {
 
 //    Actions on 2 word commands must be used with gameScannerInput()
 //    TODO combine with gameScannerInput()
-    public static void gameScannerOutput(String gameInput, Player player, Map<String, Room> roomMap, Map<String, NPC> npcMap) {
+    public static void gameScannerOutput(String gameInput, Player player, Map<String, Room> roomMap, Map<String, NPC> npcMap, Map<String, Endings> endingsMap) {
 //      Verb being first word and Noun second word
         String verb = gameInput.split(" ")[0];
         String noun = gameInput.split(" ")[1];
@@ -119,21 +119,22 @@ public class TextParser {
 //                    TODO need to add way to kick player back to main menu
 //                Game endings
                 case "boat":
+                    Endings endings = endingsMap.get("endings");
                     if(player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey")){
-                        System.out.println("ending1");
+                        System.out.println(endings.okcase);
                         System.exit(0);
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
                             player.inventory.getInventory().contains("karma")){
-                        System.out.println("ending2");
+                        System.out.println(endingsMap.get(endings.bestcase));
                         System.exit(0);
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
                             player.inventory.getInventory().contains("lason")){
-                        System.out.println("ending3");
+                        System.out.println(endingsMap.get(endings.worstcase));
                         System.exit(0);
                     }
                     else if (player.getCurRoom().description.contains("boat") &&

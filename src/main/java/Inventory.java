@@ -9,7 +9,6 @@ public class Inventory {
     public Inventory(String item){
         inventory.add(item);
 
-
     }
 //     Getter and Settter
     public ArrayList<String> getInventory() {

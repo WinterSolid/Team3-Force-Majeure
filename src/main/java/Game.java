@@ -19,6 +19,7 @@ public class Game {
         audio.play("lobby");
         Map<String, Room> roomMap = Data.roomMap;
         Map<String, NPC> npcMap = Data.npcMap;
+        Map<String, Endings> endingsMap = Data.endingMap;
         // get starting room ("Water")
         Room startRoom = roomMap.get("WaterWreckage");
         // init Player
@@ -53,10 +54,11 @@ public class Game {
 //            *CODE HERE*
 //            prompt User
             String response = TextParser.gameScannerInput();
+          
             if ("mute".equals(response)) {
                 audio.toggleMute();
             }
-            TextParser.gameScannerOutput(response, player, roomMap, npcMap);
+            TextParser.gameScannerOutput(response, player, roomMap, npcMap, endingsMap);
         }
     }
     public void setGameRunning(boolean gameRunning) {
