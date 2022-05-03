@@ -1,8 +1,10 @@
 import javax.sound.sampled.*;
 import java.io.InputStream;
+import java.util.List;
 
 public class Audio implements Runnable {
     private static final Audio INSTANCE = new Audio();
+    private static final List<String> AUDIO_NAMES = List.of("start", "beach");
     private volatile boolean muted = false;
     private Clip clip;
 
@@ -13,6 +15,9 @@ public class Audio implements Runnable {
     }
 
     private void findAndPlay(String name) {
+        if (!AUDIO_NAMES.contains(name)) {
+            return;
+        }
         String fileName = "audio/" + name + ".wav";
         AudioInputStream ais = null;
 
@@ -51,6 +56,16 @@ public class Audio implements Runnable {
 
     public void mute() {
         setMuted(true);
+        stop();
+    }
+
+    public void toggleMute() {
+        boolean isMuted = getMuted();
+        if (isMuted) {
+            unMute();
+        } else {
+            mute();
+        }
     }
 
     public void unMute() {
@@ -64,12 +79,12 @@ public class Audio implements Runnable {
         }
     }
 
+    private boolean getMuted() {
+        return this.muted;
+    }
+
     private void setMuted(Boolean muted) {
         this.muted = muted;
-        if (clip.isActive()) {
-            clip.stop();
-            clip.close();
-        }
         // maybe need to close thread?
     }
 }

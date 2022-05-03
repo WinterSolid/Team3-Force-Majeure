@@ -16,6 +16,8 @@ public class MainMenu {
             if (startGame.equals("game")) {
                 runGame = false;
                 audio.stop();
+            } else if (startGame.equals("mute")) {
+                audio.toggleMute();
             }
         }
     }

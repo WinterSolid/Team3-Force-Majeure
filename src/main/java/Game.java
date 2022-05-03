@@ -16,9 +16,6 @@ public class Game {
     }
 //    Business methods
     void runGame() throws Exception {
-        // get roomMap
-//        GameData gameData = new GameData();
-
         audio.play("start");
         Map<String, Room> roomMap = Data.roomMap;
         Map<String, NPC> npcMap = Data.npcMap;
@@ -38,15 +35,13 @@ public class Game {
         }
 
 //        Start Game
-//        System.out.println(gameIntro);
-
-
         while (gameRunning) {
             Room curRoom = player.getCurRoom();
-//            Player Location
+            // play room audio
+            audio.play(curRoom.getName().toLowerCase());
+            // print current room name
             System.out.println("Current Room=" + curRoom.getName());
             // print description
-
             System.out.println("Description=" + player.getCurRoom().getDescription());
             if (curRoom.getNpcs() != null) {
               System.out.println("NPCs=" + List.of(curRoom.getNpcs()));
@@ -58,6 +53,9 @@ public class Game {
 //            *CODE HERE*
 //            prompt User
             String response = TextParser.gameScannerInput();
+            if ("mute".equals(response)) {
+                audio.toggleMute();
+            }
             TextParser.gameScannerOutput(response, player, roomMap, npcMap);
         }
     }
