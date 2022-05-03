@@ -111,6 +111,33 @@ public class TextParser {
                         System.out.println("Larson?");
                     }
                     break;
+//                    TODO need to add way to kick player back to main menu
+//                Game endings
+                case "boat":
+                    if(player.getCurRoom().description.contains("boat") &&
+                            player.inventory.getInventory().contains("boatkey")){
+                        System.out.println("ending1");
+                        System.exit(0);
+                    }
+                    else if (player.getCurRoom().description.contains("boat") &&
+                            player.inventory.getInventory().contains("boatkey") &&
+                            player.inventory.getInventory().contains("karma")){
+                        System.out.println("ending2");
+                        System.exit(0);
+                    }
+                    else if (player.getCurRoom().description.contains("boat") &&
+                            player.inventory.getInventory().contains("boatkey") &&
+                            player.inventory.getInventory().contains("lason")){
+                        System.out.println("ending3");
+                        System.exit(0);
+                    }
+                    else if (player.getCurRoom().description.contains("boat") &&
+                            !player.inventory.getInventory().contains("boatkey"))
+                        System.out.println("Need key for boat");
+                    else{
+                        System.out.println("What boat?");
+                    }
+                    break;
                 default:
                     System.out.println(noun + "?");
             }
