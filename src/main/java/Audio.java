@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Audio implements Runnable {
     private static final Audio INSTANCE = new Audio();
-    private static final List<String> AUDIO_NAMES = List.of("start", "beach");
+    private static final List<String> AUDIO_NAMES = List.of("start", "lobby");
     private volatile boolean muted = false;
     private Clip clip;
 
@@ -18,7 +18,10 @@ public class Audio implements Runnable {
         if (!AUDIO_NAMES.contains(name)) {
             return;
         }
-        String fileName = "audio/" + name + ".wav";
+        String fileNameWav = "audio/" + name + ".wav";
+        String fileNameMP3 = "audio/" + name + ".mp3";
+        boolean isMP3 = FileResourceUtils.resourceExists(fileNameMP3);
+        String fileName = isMP3 ? fileNameMP3 : fileNameWav;
         AudioInputStream ais = null;
 
         try {
