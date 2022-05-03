@@ -96,7 +96,6 @@ public class TextParser {
                         player.inventory.appendInventory("pepsi");
                         player.inventory.removeItemInventory("sanddollar");
                         System.out.println("sanddollar removed");
-
                     }
                     else if(player.getCurRoom().description.contains("pepsimachine")
                             && !player.inventory.getInventory().contains("sanddollar")){
@@ -167,7 +166,6 @@ public class TextParser {
                     break;
                 default:
                     System.out.println("You cannot interact with that item.");
-
             }
         } else if ("talk".equals(verb)) {
             Room curRoom = player.curRoom;
@@ -181,6 +179,7 @@ public class TextParser {
                 npcMap.get(titleCasedName).speak();
             }
         }
+
         else if(verb.contains("get")) {
 //          Check if item in room
             if (noun.equals(player.getCurRoom().getItem())){

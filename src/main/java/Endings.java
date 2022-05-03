@@ -1,13 +1,15 @@
 
 /*
- *
+ * Class used for getting game endings
  */
 
 public class Endings {
+//    Variables
     String bestcase;
     String okcase;
     String worstcase;
 
+//    Getters for endings
     String getBestcase() {
         return this.bestcase;
     }
