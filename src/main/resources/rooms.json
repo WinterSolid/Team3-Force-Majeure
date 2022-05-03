@@ -34,7 +34,7 @@
   },
   "Boat": {
     "name": "Boat",
-    "description": "description",
+    "description": "You walk into a loading dock and see a boat. On the boat is a sign that says 'if needed please use keys are are in hostpital'",
     "directions": {
       "north": "nothing",
       "south": "nothing",
@@ -69,7 +69,7 @@
     "description": "You are walking down a long dirty hallway, you hear muffled voices in a distance.",
     "directions": {
       "north": "NorthHall2",
-      "south": "lobby",
+      "south": "Lobby",
       "east": "nothing",
       "west": "nothing"
     },
@@ -115,6 +115,7 @@
   "WaitingRoom": {
     "name": "WaitingRoom",
     "description": "You see a bunch of chairs scattered across the room, \nthere is one upright chair in the center, with a sign that says I made it to an SDE and so can you. \nRight below the sign is the boat key." ,
+    "item": "boatkey",
     "directions": {
       "north": "nothing",
       "south": "nothing",
