@@ -16,7 +16,7 @@ public class Game {
     }
 //    Business methods
     void runGame() throws Exception {
-        audio.play("lobby");
+        audio.play("start");
         Map<String, Room> roomMap = Data.roomMap;
         Map<String, NPC> npcMap = Data.npcMap;
         Map<String, Endings> endingsMap = Data.endingMap;
