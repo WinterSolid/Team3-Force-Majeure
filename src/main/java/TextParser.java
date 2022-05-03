@@ -16,7 +16,7 @@ public class TextParser {
     static Scanner scanner = new Scanner(System.in);
 
     //    Main Menu text parser
-    public static String textInputMainMenu(){
+    public static String textInputMainMenu() {
         String userInput = "  ";
         while (1 != userInput.split(" ").length){
             System.out.print(">:");
@@ -40,7 +40,7 @@ public class TextParser {
 
 //    Game text parser runs during game takes 1 word or 2 word commands and if 1 word command executes them
 //    if 2 word command it will pass to gameScannerOutput()
-    public static String gameScannerInput() throws IOException {
+    public static String gameScannerInput() {
         String helpBanner = Data.textMap.get("help");
         String userInput = "";
         while (2 != userInput.split(" ").length){

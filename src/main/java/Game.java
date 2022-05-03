@@ -4,9 +4,10 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Game {
-//    String gameIntro = Files.readString(Path.of("asciiArt/intro"));
+    Audio audio = Audio.getInstance();
 
     public Game() {
     }
@@ -14,6 +15,8 @@ public class Game {
     void runGame() throws Exception {
         // get roomMap
 //        GameData gameData = new GameData();
+
+        audio.play("start");
         Map<String, Room> roomMap = Data.roomMap;
         Map<String, NPC> npcMap = Data.npcMap;
         // get starting room ("Water")
