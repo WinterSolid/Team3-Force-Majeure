@@ -16,12 +16,6 @@ public class MainMenu {
                 runGame = false;
             }
         }
-//      for testing verbs
-//      String response = TextParser.gameScannerInput();
-//      TextParser.gameScannerOutput(response, player1);
-//      for testing player
-//      Player player1 = new Player();
-//      player1.readMap();
     }
 
     private void welcome() {

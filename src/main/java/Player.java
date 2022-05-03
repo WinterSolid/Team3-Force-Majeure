@@ -13,7 +13,6 @@ public class Player {
     public Player() {
 //        starting player off with map for right now
         this.playerMap = Data.textMap.get("playerMap");
-//        inventory.add("map");
     }
 
 //    Business Methods
@@ -28,16 +27,6 @@ public class Player {
             System.out.println("I dont see map in your inventory");
         }
     }
-
-//  Getter and Setter
-//    public ArrayList<String> getInventory() {
-//        return inventory;
-//    }
-//
-//    public void setInventory(ArrayList<String> inventory) {
-//        this.inventory = inventory;
-//    }
-
 
     public Room getCurRoom() {
         return curRoom;
