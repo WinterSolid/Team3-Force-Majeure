@@ -1,4 +1,5 @@
 import javax.sound.sampled.*;
+import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.List;
 
@@ -24,9 +25,11 @@ public class Audio implements Runnable {
         String fileName = isMP3 ? fileNameMP3 : fileNameWav;
         AudioInputStream ais = null;
 
+
         try {
             InputStream inputStream = FileResourceUtils.getInputStreamFromResource(fileName);
-            ais = AudioSystem.getAudioInputStream(inputStream);
+            InputStream buffInputStream = new BufferedInputStream(inputStream);
+            ais = AudioSystem.getAudioInputStream(buffInputStream);
         } catch (Exception e) {
             e.printStackTrace();
         }
