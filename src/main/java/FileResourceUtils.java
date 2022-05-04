@@ -1,10 +1,5 @@
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.List;
 import java.util.Objects;
 
 public class FileResourceUtils {
@@ -33,12 +28,9 @@ public class FileResourceUtils {
 
     public static InputStream getInputStreamFromResource(String fileName) {
         ClassLoader classLoader = Main.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(fileName);
 
-        if (inputStream == null) {
-            throw new IllegalArgumentException("file not found! " + fileName);
-        }
-        return inputStream;
+        return new BufferedInputStream(
+                Objects.requireNonNull(classLoader.getResourceAsStream(fileName)));
     }
 
     public static boolean resourceExists(String fileName) {
@@ -50,42 +42,4 @@ public class FileResourceUtils {
         ClassLoader classLoader = Main.class.getClassLoader();
         return classLoader.getResource(fileName);
     }
-
-
-//    private static File getFileFromResource(String fileName)
-//            throws URISyntaxException {
-//        ClassLoader classLoader = Main.class.getClassLoader();
-//        URL resource = classLoader.getResource(fileName);
-//        if (resource == null) {
-//            throw new IllegalArgumentException("file not found! " + fileName);
-//        }
-//        return new File(resource.toURI());
-//    }
-
-//    public void getFileFromResourceAndPrint(String fileName)
-//            throws URISyntaxException {
-//        File file = getFileFromResource(fileName);
-//        printFile(file);
-//    }
-
-//    public String getFileFromResourceAndReturnAsString(String fileName)
-//            throws URISyntaxException, IOException {
-//        File file = getFileFromResource(fileName);
-//        return getFileAsString(file);
-//    }
-
-//    private void printFile(File file) {
-//
-//        List<String> lines;
-//        try {
-//            lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
-//            lines.forEach(System.out::println);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    private String getFileAsString(File file) throws IOException {
-//        return Files.readString(file.toPath());
-//    }
 }
