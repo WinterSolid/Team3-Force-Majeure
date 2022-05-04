@@ -5,7 +5,6 @@ import java.util.List;
 public class Room {
     public String name;
     public String description;
-    public String npc;
     public String item;
     public String story;
 //    public HashMap<String, String> item;
@@ -43,4 +42,21 @@ public class Room {
         return this.npcs;
     }
 
+    public void displayRoomInfo() {
+        String npcStr = "";
+        if (getNpcs() != null) {
+            npcStr = List.of(getNpcs()) +
+                    " is in the area" +
+                    "\n";
+        }
+        String str = "You are at the " +
+                getName() +
+                "\n" +
+                getDescription() +
+                "\n" +
+                npcStr +
+                "You see: " +
+                getItem();
+        System.out.println(str);
+    }
 }
