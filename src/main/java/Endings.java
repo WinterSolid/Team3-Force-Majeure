@@ -21,6 +21,4 @@ public class Endings {
     String getWorstcase() {
         return this.worstcase;
     }
-
-
 }

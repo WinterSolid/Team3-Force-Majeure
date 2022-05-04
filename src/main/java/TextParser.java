@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class TextParser {
-//    INSTANCE VARIABLESs
+//    INSTANCE VARIABLES
     private static final Scanner scanner = new Scanner(System.in);
     private final Audio audio = Audio.getInstance();
 
@@ -106,34 +106,43 @@ public class TextParser {
                         System.out.println("Vending Machine?");
                     }
                     break;
-                case "larson":
-                    if (player.getCurRoom().getItem().contains("larson")){
-//                        TODO add flag that will figure out if user has given Larson pepsi
-                        System.out.println("Larsons joins you");
+                case "pepsi":
+                    if (player.getCurRoom().getName().equals("DoctorsOffice") &&
+                            player.inventory.getInventory().contains("pepsi")){
+                        player.inventory.appendInventory("karma");
+                        player.inventory.removeItemInventory("pepsi");
+                        System.out.println("Larson starts coming to remember the glory, the Java conventions, the concepts. You don't know what’s going on with him, but you are glad you helped a brother out. But you’ve got to get to the bachelor party, no time to hear Larson stumble through his thoughts. He asks if he can join you at the SDE bachelor Party, but you know the beach might be good thing for him if he has to get his environment working.\\n\"");
                     }
-                    else{
-                        System.out.println("Larson?");
+                    break;
+                case "larson":
+                    if (player.getCurRoom().getName().equals("DoctorsOffice") &&
+                    player.inventory.getInventory().contains("karma")){
+//                        TODO add flag that will figure out if user has given Larson pepsi
+                        player.inventory.appendInventory("larson");
+                        player.inventory.removeItemInventory("karma");
+                        System.out.println("Larsons joins you");
                     }
                     break;
 //                    TODO need to add way to kick player back to main menu
 //                Game endings
-                case "boat":
-                    Endings endings = endingsMap.get("endings");
+                case "boatkey":
                     if(player.getCurRoom().description.contains("boat") &&
-                            player.inventory.getInventory().contains("boatkey")){
-                        System.out.println(endings.okcase);
+                            player.inventory.getInventory().contains("boatkey") &&
+                            !player.inventory.getInventory().contains("karma") &&
+                            !player.inventory.getInventory().contains("larson")){
+                        System.out.println(endingsMap.get("endings").worstcase);
                         System.exit(0);
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
                             player.inventory.getInventory().contains("karma")){
-                        System.out.println(endingsMap.get(endings.bestcase));
+                        System.out.println(endingsMap.get("endings").bestcase);
                         System.exit(0);
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
-                            player.inventory.getInventory().contains("lason")){
-                        System.out.println(endingsMap.get(endings.worstcase));
+                            player.inventory.getInventory().contains("larson")){
+                        System.out.println(endingsMap.get("endings").worstcase);
                         System.exit(0);
                     }
                     else if (player.getCurRoom().description.contains("boat") &&

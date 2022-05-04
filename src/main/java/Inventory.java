@@ -8,8 +8,8 @@ public class Inventory {
 //    Constructor
     public Inventory(String item){
         inventory.add(item);
-
     }
+
 //     Getter and Settter
     public ArrayList<String> getInventory() {
         return inventory;
