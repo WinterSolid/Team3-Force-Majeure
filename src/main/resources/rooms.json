@@ -18,7 +18,7 @@
   },
   "Beach": {
     "name": "Beach",
-    "description": "description",
+    "description": "You are on the beach, feel the sand burning your feet,\nthere is a boat dock east and Hospital entrance north.",
     "item": "sanddollar",
     "directions": {
       "north": "Lobby",
