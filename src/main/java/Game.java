@@ -47,6 +47,12 @@ public class Game {
             if (curRoom.getNpcs() != null) {
               System.out.println("NPCs=" + List.of(curRoom.getNpcs()));
             }
+//            prints story element for doctors office
+            if (player.curRoom.getName().equals("DoctorsOffice") && (
+                    !player.inventory.getInventory().contains("larson") &&
+                    !player.inventory.getInventory().contains("karma"))){
+                System.out.println(player.getCurRoom().getStory());
+            }
 //            print items
             System.out.println("items= " + player.getCurRoom().getItem());
 

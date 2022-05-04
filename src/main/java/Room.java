@@ -7,6 +7,7 @@ public class Room {
     public String description;
     public String npc;
     public String item;
+    public String story;
 //    public HashMap<String, String> item;
     public HashMap<String, String> directions;
     public HashMap<String, String> looking;
@@ -19,6 +20,9 @@ public class Room {
 
     String getDescription() {
         return this.description;
+    }
+    String getStory() {
+        return this.story;
     }
     String getItem() {
         return this.item;
