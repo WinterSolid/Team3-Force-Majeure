@@ -42,9 +42,13 @@ public class FileResourceUtils {
     }
 
     public static boolean resourceExists(String fileName) {
+        URL resource = getUrlFromResource(fileName);
+        return resource != null;
+    }
+
+    public static URL getUrlFromResource(String fileName) {
         ClassLoader classLoader = Main.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(fileName);
-        return inputStream != null;
+        return classLoader.getResource(fileName);
     }
 
 
