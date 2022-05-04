@@ -9,14 +9,58 @@ import java.util.Objects;
 
 public class FileResourceUtils {
 
-    private static final FileResourceUtils INSTANCE =
-            new FileResourceUtils();
-
     private FileResourceUtils() {}
 
-    public static FileResourceUtils getInstance() {
-        return INSTANCE;
+    public static String getFileAsStringFromResourceStream(String fileName) {
+        ClassLoader classLoader = Main.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(fileName);
+        Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
+
+        try {
+            char[] buffer = new char[4096];
+            StringBuilder builder = new StringBuilder();
+            int numChars;
+
+            while ((numChars = reader.read(buffer)) >= 0) {
+                builder.append(buffer, 0, numChars);
+            }
+            return builder.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+
+    public static InputStream getInputStreamFromResource(String fileName) {
+        ClassLoader classLoader = Main.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(fileName);
+
+        if (inputStream == null) {
+            throw new IllegalArgumentException("file not found! " + fileName);
+        }
+        return inputStream;
+    }
+
+    public static boolean resourceExists(String fileName) {
+        URL resource = getUrlFromResource(fileName);
+        return resource != null;
+    }
+
+    public static URL getUrlFromResource(String fileName) {
+        ClassLoader classLoader = Main.class.getClassLoader();
+        return classLoader.getResource(fileName);
+    }
+
+
+//    private static File getFileFromResource(String fileName)
+//            throws URISyntaxException {
+//        ClassLoader classLoader = Main.class.getClassLoader();
+//        URL resource = classLoader.getResource(fileName);
+//        if (resource == null) {
+//            throw new IllegalArgumentException("file not found! " + fileName);
+//        }
+//        return new File(resource.toURI());
+//    }
 
 //    public void getFileFromResourceAndPrint(String fileName)
 //            throws URISyntaxException {
@@ -28,16 +72,6 @@ public class FileResourceUtils {
 //            throws URISyntaxException, IOException {
 //        File file = getFileFromResource(fileName);
 //        return getFileAsString(file);
-//    }
-
-//    private File getFileFromResource(String fileName)
-//            throws URISyntaxException {
-//        ClassLoader classLoader = getClass().getClassLoader();
-//        URL resource = classLoader.getResource(fileName);
-//        if (resource == null) {
-//            throw new IllegalArgumentException("file not found! " + fileName);
-//        }
-//        return new File(resource.toURI());
 //    }
 
 //    private void printFile(File file) {
@@ -54,24 +88,4 @@ public class FileResourceUtils {
 //    private String getFileAsString(File file) throws IOException {
 //        return Files.readString(file.toPath());
 //    }
-
-    public String getFileAsStringFromResourceStream(String fileName) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(fileName);
-        Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
-        try {
-            char[] buffer = new char[4096];
-            StringBuilder builder = new StringBuilder();
-            int numChars;
-
-            while ((numChars = reader.read(buffer)) >= 0) {
-                builder.append(buffer, 0, numChars);
-            }
-
-            return builder.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

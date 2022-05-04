@@ -2,6 +2,7 @@
   "WaterWreckage": {
     "name": "Water Wreckage",
     "description": "You look around and notice you are in the water in boat wreckage,\nyou look down and notice you were floating on a sign, it says Larson's discount boat tours.\"",
+    "item": "nothing",
     "directions": {
       "north": "Beach",
       "south": "nothing",
@@ -9,7 +10,7 @@
       "west": "nothing"
     },
     "looking": {
-      "north": "A small island ahead",
+      "north": "You look off in a distance and notice a island with a large structure on it",
       "south": "nothing,but Water for as far as the eyes can see",
       "east": "nothing,but Water for as far as the eyes can see",
       "west": "nothing,but Water for as far as the eyes can see"
@@ -18,6 +19,7 @@
   "Beach": {
     "name": "Beach",
     "description": "description",
+    "item": "sanddollar",
     "directions": {
       "north": "Lobby",
       "south": "Water",
@@ -33,7 +35,8 @@
   },
   "Boat": {
     "name": "Boat",
-    "description": "description",
+    "description": "You walk into a loading dock and see a boat. On the boat is a sign that says 'if needed please use keys are are in hostpital'",
+    "item": "nothing",
     "directions": {
       "north": "nothing",
       "south": "nothing",
@@ -49,7 +52,8 @@
   },
   "Lobby": {
     "name": "Lobby",
-    "description": "description",
+    "description": "You are in the dark lobby of the hospital. with a dim light east of room. You see a dimmly lit pepsimachine in the corner",
+    "item": "nothing",
     "directions": {
       "north": "NorthHallway",
       "south": "Beach",
@@ -59,16 +63,17 @@
     "looking": {
       "north": "See a Hallway",
       "south": "look out doors to see beach",
-      "east": "Trash and garbage",
+      "east": " You see worn furniture and an information stand and a dimly lit pepsimachine!",
       "west": "Trash and garbage"
     }
   },
   "NorthHallway": {
     "name": "NorthHallway",
-    "description": "description",
+    "description": "You are walking down a long dirty hallway, you hear muffled voices in a distance.",
+    "item": "nothing",
     "directions": {
       "north": "NorthHall2",
-      "south": "lobby",
+      "south": "Lobby",
       "east": "nothing",
       "west": "nothing"
     },
@@ -81,7 +86,8 @@
   },
   "NorthHall2": {
     "name": "NorthHall2",
-    "description": "description",
+    "description": "You are in North Hallway 2, and you here voice coming from a unknown location.",
+    "item": "nothing",
     "directions": {
       "north": "DoctorsOffice",
       "south": "NorthHallway",
@@ -97,7 +103,8 @@
   },
   "WestHallway": {
     "name": "WestHallway",
-    "description": "description",
+    "description": "You are in the West Hallway. West has a sign marked Waiting Room.",
+    "item": "nothing",
     "directions": {
       "north": "nothing",
       "south": "nothing",
@@ -113,8 +120,8 @@
   },
   "WaitingRoom": {
     "name": "WaitingRoom",
-    "description": "description",
-    "npc": "Larson",
+    "description": "You see a bunch of chairs scattered across the room, \nthere is one upright chair in the center, with a sign that says I made it to an SDE and so can you. \nRight below the sign is the boat key." ,
+    "item": "boatkey",
     "directions": {
       "north": "nothing",
       "south": "nothing",
@@ -130,7 +137,8 @@
   },
   "DoctorsOffice": {
     "name": "DoctorsOffice",
-    "description": "description",
+    "description": "You enter the Doctors Office, \neverybody is panicking. You hear Larson say in confusion \n“Where is my Code. \nMy environment does not work, help a brother out.” \nDoctors look at you and ask, “Are you an SDE? \nDoc says his Junit is not imported and there are red lines everywhere.\nThere seems to be an error on line 14 Pepsi is not defined.\nCan you help? We are only doctors and understand human issues.”\n    * Use Pepsi\n    * Larson starts coming to remember the glory, the Java conventions, the concepts. You don't know what’s going on with him, but you are glad you helped a brother out. But you’ve got to get to the bachelor party, no time to hear Larson stumble through his thoughts. He asks if he can join you at the SDE bachelor Party, but you know the beach might be good thing for him if he has to get his environment working.\n",
+    "item": "nothing",
     "directions": {
       "north": "nothing",
       "south": "NorthHall2",
