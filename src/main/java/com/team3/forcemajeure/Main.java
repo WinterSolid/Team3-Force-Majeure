@@ -1,4 +1,4 @@
-import java.io.IOException;
+package com.team3.forcemajeure;
 
 public class Main {
     public static void main(String[] args) throws Exception {

@@ -1,3 +1,6 @@
+package com.team3.forcemajeure.util;
+
+import com.team3.forcemajeure.util.Inventory;
 import org.junit.Before;
 import org.junit.Test;
 

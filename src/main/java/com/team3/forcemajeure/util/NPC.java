@@ -1,3 +1,5 @@
+package com.team3.forcemajeure.util;
+
 import java.util.Map;
 
 public class NPC {

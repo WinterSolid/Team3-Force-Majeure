@@ -1,6 +1,12 @@
+package com.team3.forcemajeure;
+
+import com.team3.forcemajeure.util.Audio;
+import com.team3.forcemajeure.util.Data;
+import com.team3.forcemajeure.util.TextParser;
+
 import java.io.*;
 /*
- * MainMenu displays main menu for the user, first screen user sees when starting app.
+ * com.team3.forcemajeure.MainMenu displays main menu for the user, first screen user sees when starting app.
  * When user finishes game it will bring him back to the main menu
  */
 public class MainMenu {
@@ -48,7 +54,7 @@ public class MainMenu {
     }
 
     private void welcome() {
-//        prints MainMenu Ascii
+//        prints com.team3.forcemajeure.MainMenu Ascii
         System.out.println(Data.textMap.get("mainMenu"));
     }
 }
