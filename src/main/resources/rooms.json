@@ -18,7 +18,7 @@
   },
   "Beach": {
     "name": "Beach",
-    "description": "description",
+    "description": "You are on the beach, feel the sand burning your feet,\nthere is a boat dock east and Hospital entrance north.",
     "item": "sanddollar",
     "directions": {
       "north": "Lobby",
@@ -27,7 +27,7 @@
       "west": "nothing"
     },
     "looking": {
-      "north": "A small island ahead you see a building",
+      "north": "A building",
       "south": "Water, you just left",
       "east": "A hospital boat",
       "west": "nothing,but empty beach"
@@ -35,7 +35,7 @@
   },
   "Boat": {
     "name": "Boat",
-    "description": "You walk into a loading dock and see a boat. On the boat is a sign that says 'if needed please use keys are are in hostpital'",
+    "description": "You walk into a loading dock and see a boat. On the boat is a sign that says 'if needed please use keys are are in hospital'",
     "item": "nothing",
     "directions": {
       "north": "nothing",
