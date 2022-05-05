@@ -39,8 +39,7 @@ public class Game {
             // display room info
             curRoom.displayRoomInfo();
 //            prints story element for doctors office
-            if (player.curRoom.getName().equals("DoctorsOffice") && (
-                    !player.inventory.getInventory().contains("larson") &&
+            if ((!player.inventory.getInventory().contains("larson") &&
                     !player.inventory.getInventory().contains("karma"))){
                 System.out.println(player.getCurRoom().getStory());
             }
