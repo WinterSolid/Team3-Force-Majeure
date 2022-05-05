@@ -25,10 +25,10 @@ public class Game {
 //        Starts com.team3.forcemajeure.Game
         while (gameRunning) {
 //            check if ending game condition have been met
-            if (player.inventory.getInventory().contains("endgame")){
+            if (player.getPlayerInventory().getInventory().contains("endgame")){
                 break;
             }
-            if (player.inventory.getInventory().contains("loopgame")){
+            if (player.getPlayerInventory().getInventory().contains("loopgame")){
                 runGame();
             }
 
@@ -39,8 +39,8 @@ public class Game {
             // display room info
             curRoom.displayRoomInfo();
 //            prints story element for doctors office
-            if ((!player.inventory.getInventory().contains("larson") &&
-                    !player.inventory.getInventory().contains("karma"))){
+            if ((!player.getPlayerInventory().getInventory().contains("larson") &&
+                    !player.getPlayerInventory().getInventory().contains("karma"))){
                 System.out.println(player.getCurRoom().getStory());
             }
 
