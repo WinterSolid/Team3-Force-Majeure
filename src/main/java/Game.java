@@ -3,15 +3,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Game {
+//     Variables
     Audio audio = Audio.getInstance();
-//      Variables
     boolean gameRunning = true;
-//    constructor
-    public Game() {
-    }
+
 //    Business methods
+//    primarly runs the game
     void runGame() {
-        audio.play("start");
+//        Sets up all objects for the game
         Map<String, Room> roomMap = Data.roomMap;
         Map<String, NPC> npcMap = Data.npcMap;
         Map<String, Endings> endingsMap = Data.endingMap;
@@ -21,17 +20,16 @@ public class Game {
         Player player = new Player();
         // set player's current room to start room
         player.setCurRoom(startRoom);
-
-        MainMenu menu = new MainMenu();
-        try {
-            menu.showMainMenu();
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }
-
-//        Start Game
+//        Starts Game
         while (gameRunning) {
+//            check if ending game condition have been met
+            if (player.inventory.getInventory().contains("endgame")){
+                break;
+            }
+            if (player.inventory.getInventory().contains("loopgame")){
+                runGame();
+            }
+
             // get current room
             Room curRoom = player.getCurRoom();
             // play room audio
@@ -44,8 +42,7 @@ public class Game {
                     !player.inventory.getInventory().contains("karma"))){
                 System.out.println(player.getCurRoom().getStory());
             }
-//            Give player a description of current area
-//            *CODE HERE*
+
 //            prompt User
             String response = TextParser.gameScannerInput();
           
@@ -54,7 +51,6 @@ public class Game {
             } else {
                 TextParser.gameScannerOutput(response, player, roomMap, npcMap, endingsMap);
             }
-
         }
     }
 

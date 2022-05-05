@@ -130,20 +130,20 @@ public class TextParser {
                             player.inventory.getInventory().contains("boatkey") &&
                             !player.inventory.getInventory().contains("karma") &&
                             !player.inventory.getInventory().contains("larson")){
-                        System.out.println(endingsMap.get("endings").worstcase);
-                        System.exit(0);
+                        System.out.println(endingsMap.get("endings").okcase);
+                        player.inventory.appendInventory("endgame");
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
                             player.inventory.getInventory().contains("karma")){
                         System.out.println(endingsMap.get("endings").bestcase);
-                        System.exit(0);
+                        player.inventory.appendInventory("endgame");
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
                             player.inventory.getInventory().contains("larson")){
                         System.out.println(endingsMap.get("endings").worstcase);
-                        System.exit(0);
+                        player.inventory.appendInventory("loopgame");
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             !player.inventory.getInventory().contains("boatkey"))
