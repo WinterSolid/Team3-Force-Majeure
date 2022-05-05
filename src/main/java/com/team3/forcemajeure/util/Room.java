@@ -1,3 +1,5 @@
+package com.team3.forcemajeure.util;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,14 +15,14 @@ public class Room {
     public List<String> npcs;
 
 
-    String getName() {
+    public String getName() {
         return this.name;
     }
 
     String getDescription() {
         return this.description;
     }
-    String getStory() {
+    public String getStory() {
         return this.story;
     }
     String getItem() {

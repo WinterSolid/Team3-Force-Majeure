@@ -1,3 +1,7 @@
+package com.team3.forcemajeure.util;
+
+import com.team3.forcemajeure.Main;
+
 import java.io.*;
 import java.net.URL;
 import java.util.Objects;

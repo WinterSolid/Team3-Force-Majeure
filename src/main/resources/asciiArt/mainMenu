@@ -15,6 +15,6 @@
      Please press help while in game for quick tutorial.
 
              Please select [start,quit]:
-             [start] New Game
-             [quit] Quit Game
+             [start] New com.team3.forcemajeure.Game
+             [quit] Quit com.team3.forcemajeure.Game
              [mute] Mute Sound

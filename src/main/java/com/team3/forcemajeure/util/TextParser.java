@@ -1,13 +1,8 @@
-
+package com.team3.forcemajeure.util;
 /*
- * TextParser class deals with all the user text input in the game
+ * com.team3.forcemajeure.util.TextParser class deals with all the user text input in the game
  */
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -16,17 +11,17 @@ public class TextParser {
     private static final Scanner scanner = new Scanner(System.in);
     private final Audio audio = Audio.getInstance();
 
-    //    Main Menu text parser
+    //    com.team3.forcemajeure.Main Menu text parser
     public static String textInputMainMenu() {
         String userInput = "  ";
         while (1 != userInput.split(" ").length){
             System.out.print(">:");
             userInput = scanner.nextLine().toLowerCase().stripLeading().stripTrailing();
-//            if user puts start in Main Menu start the game
+//            if user puts start in com.team3.forcemajeure.Main Menu start the game
             if (userInput.equals("start")){
                 userInput = "game";
             }
-//            if user puts quit in Main Menu cleanly exit game
+//            if user puts quit in com.team3.forcemajeure.Main Menu cleanly exit game
             else if (userInput.equals("quit")){
                 System.out.println("Exiting the game");
                 System.exit(0);
@@ -41,7 +36,7 @@ public class TextParser {
         return userInput;
     }
 
-//    Game text parser runs during game takes 1 word or 2 word commands and if 1 word command executes them
+//    com.team3.forcemajeure.Game text parser runs during game takes 1 word or 2 word commands and if 1 word command executes them
 //    if 2 word command it will pass to gameScannerOutput()
     public static String gameScannerInput() {
         String helpBanner = Data.textMap.get("help");
@@ -86,7 +81,7 @@ public class TextParser {
             }
             player.setCurRoom(nextRoom);
         }
-//        TODO need method to look through user Inventory
+//        TODO need method to look through user com.team3.forcemajeure.util.Inventory
         else if(verb.contains("use")){
             switch (noun){
                 case "pepsimachine":
@@ -124,7 +119,7 @@ public class TextParser {
                     }
                     break;
 //                    TODO need to add way to kick player back to main menu
-//                Game endings
+//                com.team3.forcemajeure.Game endings
                 case "boatkey":
                     if(player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&

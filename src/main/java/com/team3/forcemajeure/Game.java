@@ -1,5 +1,7 @@
-import java.io.IOException;
-import java.util.List;
+package com.team3.forcemajeure;
+
+import com.team3.forcemajeure.util.*;
+
 import java.util.Map;
 
 public class Game {
@@ -16,11 +18,11 @@ public class Game {
         Map<String, Endings> endingsMap = Data.endingMap;
         // get starting room ("Water")
         Room startRoom = roomMap.get("WaterWreckage");
-        // init Player
+        // init com.team3.forcemajeure.util.Player
         Player player = new Player();
         // set player's current room to start room
         player.setCurRoom(startRoom);
-//        Starts Game
+//        Starts com.team3.forcemajeure.Game
         while (gameRunning) {
 //            check if ending game condition have been met
             if (player.inventory.getInventory().contains("endgame")){

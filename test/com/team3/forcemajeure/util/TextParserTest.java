@@ -1,4 +1,6 @@
-import org.junit.Assert;
+package com.team3.forcemajeure.util;
+
+import com.team3.forcemajeure.util.TextParser;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
