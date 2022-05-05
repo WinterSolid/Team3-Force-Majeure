@@ -1,13 +1,8 @@
-
+package com.team3.forcemajeure.util;
 /*
- * TextParser class deals with all the user text input in the game
+ * com.team3.forcemajeure.util.TextParser class deals with all the user text input in the game
  */
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -15,18 +10,27 @@ public class TextParser {
 //    INSTANCE VARIABLES
     private static final Scanner scanner = new Scanner(System.in);
 
-    //    Main Menu text parser
+    //    com.team3.forcemajeure.Main Menu text parser
     public static String textInputMainMenu() {
         String userInput = "  ";
         while (1 != userInput.split(" ").length) {
             System.out.print(">:");
             userInput = scanner.nextLine().toLowerCase().stripLeading().stripTrailing();
+<<<<<<< HEAD:src/main/java/TextParser.java
 //            if user puts start in Main Menu start the game
             if (userInput.equals("start")) {
                 userInput = "game";
             }
 //            if user puts quit in Main Menu cleanly exit game
             else if (userInput.equals("quit")) {
+=======
+//            if user puts start in com.team3.forcemajeure.Main Menu start the game
+            if (userInput.equals("start")){
+                userInput = "game";
+            }
+//            if user puts quit in com.team3.forcemajeure.Main Menu cleanly exit game
+            else if (userInput.equals("quit")){
+>>>>>>> baca770cf7bf72f35058c996d2a0b9d3e80ed091:src/main/java/com/team3/forcemajeure/util/TextParser.java
                 System.out.println("Exiting the game");
 
                 System.exit(0);
@@ -41,7 +45,7 @@ public class TextParser {
         return userInput;
     }
 
-//    Game text parser runs during game takes 1 word or 2 word commands and if 1 word command executes them
+//    com.team3.forcemajeure.Game text parser runs during game takes 1 word or 2 word commands and if 1 word command executes them
 //    if 2 word command it will pass to gameScannerOutput()
     public static String gameScannerInput() {
         String helpBanner = Data.textMap.get("help");
@@ -87,9 +91,15 @@ public class TextParser {
             }
             player.setCurRoom(nextRoom);
         }
+<<<<<<< HEAD:src/main/java/TextParser.java
 //        TODO need method to look through user Inventory
         else if (verb.contains("use")) {
             switch (noun) {
+=======
+//        TODO need method to look through user com.team3.forcemajeure.util.Inventory
+        else if(verb.contains("use")){
+            switch (noun){
+>>>>>>> baca770cf7bf72f35058c996d2a0b9d3e80ed091:src/main/java/com/team3/forcemajeure/util/TextParser.java
                 case "pepsimachine":
                     if (player.getCurRoom().description.contains("pepsimachine") &&
                             player.inventory.getInventory().contains("sanddollar")){
@@ -113,6 +123,7 @@ public class TextParser {
                         player.inventory.appendInventory("karma");
                         player.inventory.removeItemInventory("pepsi");
                         System.out.println("Larson starts coming to remember the glory, the Java conventions, the concepts. You don't know what’s going on with him, but you are glad you helped a brother out. But you’ve got to get to the bachelor party, no time to hear Larson stumble through his thoughts. He asks if he can join you at the SDE bachelor Party, but you know the beach might be good thing for him if he has to get his environment working.\\n\"");
+                        System.out.println("type 'use larson' to get Larson to boat or leave him");
                     }
                     break;
                 case "larson":
@@ -125,26 +136,26 @@ public class TextParser {
                     }
                     break;
 //                    TODO need to add way to kick player back to main menu
-//                Game endings
+//                com.team3.forcemajeure.Game endings
                 case "boatkey":
                     if(player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
                             !player.inventory.getInventory().contains("karma") &&
                             !player.inventory.getInventory().contains("larson")){
-                        System.out.println(endingsMap.get("endings").worstcase);
-                        System.exit(0);
+                        System.out.println(endingsMap.get("endings").okcase);
+                        player.inventory.appendInventory("endgame");
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
                             player.inventory.getInventory().contains("karma")){
                         System.out.println(endingsMap.get("endings").bestcase);
-                        System.exit(0);
+                        player.inventory.appendInventory("endgame");
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             player.inventory.getInventory().contains("boatkey") &&
                             player.inventory.getInventory().contains("larson")){
                         System.out.println(endingsMap.get("endings").worstcase);
-                        System.exit(0);
+                        player.inventory.appendInventory("loopgame");
                     }
                     else if (player.getCurRoom().description.contains("boat") &&
                             !player.inventory.getInventory().contains("boatkey"))

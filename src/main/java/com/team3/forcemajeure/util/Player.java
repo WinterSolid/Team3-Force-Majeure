@@ -1,12 +1,12 @@
-import java.util.ArrayList;
+package com.team3.forcemajeure.util;
 
 public class Player {
 //    TODO prob should not hardcode this
 //    Setting Beach since that is our starting location
 //    Variables
-    Room curRoom;
+   public  Room curRoom;
 //    ArrayList<String> inventory = new ArrayList<>();
-    Inventory inventory = new Inventory("map");
+public Inventory inventory = new Inventory("map");
     String playerMap;
 
 //    Constructor

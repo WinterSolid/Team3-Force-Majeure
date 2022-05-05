@@ -1,3 +1,5 @@
+package com.team3.forcemajeure.util;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -75,8 +77,13 @@ public class Data {
             e.printStackTrace();
         }
     }
+<<<<<<< HEAD:src/main/java/Data.java
 //  Endings
     public static void loadEndingsMap() {
+=======
+//  com.team3.forcemajeure.util.Endings
+    public static void endingsRoomMap() {
+>>>>>>> baca770cf7bf72f35058c996d2a0b9d3e80ed091:src/main/java/com/team3/forcemajeure/util/Data.java
         Type type = new TypeToken<Map<String, Endings>>() {}.getType();
 
         try {

@@ -1,3 +1,5 @@
+package com.team3.forcemajeure.util;
+
 import javax.sound.sampled.*;
 import java.io.InputStream;
 import java.util.List;
