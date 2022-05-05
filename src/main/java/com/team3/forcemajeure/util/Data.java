@@ -27,13 +27,8 @@ public class Data {
         npcMap = new HashMap<>();
         endingMap = new HashMap<>();
 
-//        if (FileResourceUtils.resourceExists("saved-data/rooms.json")) {
-//            loadRoomMap("saved-data/");
-//            loadNPCMap("saved-data/");
-//        } else {
-            loadRoomMap("data/");
-            loadNPCMap("data/");
-//        }
+        loadRoomMap("data/");
+        loadNPCMap("data/");
         loadTextMap();
         loadEndingsMap();
     }
