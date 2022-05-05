@@ -20,6 +20,7 @@
     "name": "Beach",
     "description": "You are on the beach, feel the sand burning your feet,\nthere is a boat dock east and Hospital entrance north.",
     "item": "sanddollar",
+    "story": "You hear faint screams coming from the north thats in the the hospital",
     "directions": {
       "north": "Lobby",
       "south": "Water",
@@ -54,6 +55,7 @@
     "name": "Lobby",
     "description": "You are in the dark lobby of the hospital. with a dim light east of room. You see a dimmly lit pepsimachine in the corner",
     "item": "nothing",
+    "story": "Screams seem to be coming form very back room of the hospital",
     "directions": {
       "north": "NorthHallway",
       "south": "Beach",
@@ -70,6 +72,7 @@
   "NorthHallway": {
     "name": "NorthHallway",
     "description": "You are walking down a long dirty hallway, you hear muffled voices in a distance.",
+    "story": "Screams are getting louder, it sounds like Larson",
     "item": "nothing",
     "directions": {
       "north": "NorthHall2",
@@ -88,6 +91,7 @@
     "name": "NorthHall2",
     "description": "You are in North Hallway 2, and you here voice coming from a unknown location.",
     "item": "nothing",
+    "story": "Screams are coming from next room, its definetly  Larson",
     "directions": {
       "north": "DoctorsOffice",
       "south": "NorthHallway",
