@@ -3,10 +3,10 @@ package com.team3.forcemajeure.util;
 import java.util.Map;
 
 public class NPC {
-    public String name;
-    public String description;
-    public Map<String,String> dialogue;
-    public Map<String,String> endings;
+    private String name;
+    private String description;
+    private Map<String,String> dialogue;
+    private Map<String,String> endings;
 
     public String getName() {
         return name;
