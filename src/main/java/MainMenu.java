@@ -4,10 +4,24 @@ import java.io.*;
  * When user finishes game it will bring him back to the main menu
  */
 public class MainMenu {
-    private final Audio audio = Audio.getInstance();
+        Audio audio = Audio.getInstance();
 
-    void showMainMenu() throws IOException {
+
+    void executes() throws IOException {
+//        primarly runs game
         boolean runGame = true;
+
+        while (runGame) {
+            showMainMenu();
+            Game game = new Game();
+            game.runGame();
+            replay();
+        }
+    }
+    void showMainMenu() throws IOException {
+//        runs main menu
+        boolean runGame = true;
+        audio.play("start");
 
         welcome();
 //      keeps prompting user for valid response
@@ -21,8 +35,20 @@ public class MainMenu {
             }
         }
     }
+    void replay (){
+//        used to replay game
+        boolean validInput = false;
+        while (!validInput){
+            System.out.println("Please enter [Start] to play again or [Quit] to exit the game: ");
+            String playerInput = TextParser.textInputMainMenu();
+            if (playerInput.equals("game")){
+                validInput = true;
+            }
+        }
+    }
 
     private void welcome() {
+//        prints MainMenu Ascii
         System.out.println(Data.textMap.get("mainMenu"));
     }
 }

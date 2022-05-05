@@ -14,7 +14,6 @@ public class Inventory {
     public ArrayList<String> getInventory() {
         return inventory;
     }
-
     public void setInventory(ArrayList<String> inventory) {
         this.inventory = inventory;
     }
