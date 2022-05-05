@@ -14,27 +14,27 @@ import java.util.Scanner;
 public class TextParser {
 //    INSTANCE VARIABLES
     private static final Scanner scanner = new Scanner(System.in);
-    private final Audio audio = Audio.getInstance();
 
     //    Main Menu text parser
     public static String textInputMainMenu() {
         String userInput = "  ";
-        while (1 != userInput.split(" ").length){
+        while (1 != userInput.split(" ").length) {
             System.out.print(">:");
             userInput = scanner.nextLine().toLowerCase().stripLeading().stripTrailing();
 //            if user puts start in Main Menu start the game
-            if (userInput.equals("start")){
+            if (userInput.equals("start")) {
                 userInput = "game";
             }
 //            if user puts quit in Main Menu cleanly exit game
-            else if (userInput.equals("quit")){
+            else if (userInput.equals("quit")) {
                 System.out.println("Exiting the game");
+
                 System.exit(0);
             } else if ("mute".equals(userInput)) {
                 return "mute";
             }
 //            User did not put in valid response
-            else{
+            else {
                 System.out.println(userInput + " Not valid command please put start or quit");
             }
         }
@@ -46,21 +46,22 @@ public class TextParser {
     public static String gameScannerInput() {
         String helpBanner = Data.textMap.get("help");
         String userInput = "";
-        while (2 != userInput.split(" ").length){
+        while (2 != userInput.split(" ").length) {
             System.out.print(">:");
             userInput = scanner.nextLine().toLowerCase().strip();
-            if (userInput.equals("help")){
+            if (userInput.equals("help")) {
                 System.out.println(helpBanner);
             }
-            else if (userInput.equals("quit")){
+            else if (userInput.equals("quit")) {
 //                add exiting the game
-                System.out.println("Exiting the game");
+                Data.saveGame();
+                System.out.println("Exiting game");
                 System.exit(0);
             } else if ("mute".equals(userInput)) {
                 return "mute";
             }
 //            user put in invalid 1 word command
-            else if (1 == userInput.split(" ").length){
+            else if (1 == userInput.split(" ").length) {
                 System.out.println(userInput + " not valid response if need help please say help");
             }
         }
@@ -87,8 +88,8 @@ public class TextParser {
             player.setCurRoom(nextRoom);
         }
 //        TODO need method to look through user Inventory
-        else if(verb.contains("use")){
-            switch (noun){
+        else if (verb.contains("use")) {
+            switch (noun) {
                 case "pepsimachine":
                     if (player.getCurRoom().description.contains("pepsimachine") &&
                             player.inventory.getInventory().contains("sanddollar")){
@@ -189,7 +190,7 @@ public class TextParser {
             }
         }
 
-        else if(verb.contains("get")) {
+        else if (verb.contains("get")) {
 //          Check if item in room
             if (noun.equals(player.getCurRoom().getItem())){
                 System.out.println("You picked up " + noun);
@@ -199,7 +200,7 @@ public class TextParser {
                 player.curRoom.removeItem(noun);
 
             }
-            else{
+            else {
                 System.out.println("no item in room");
                 System.out.println(player.getCurRoom().getItem());
             }

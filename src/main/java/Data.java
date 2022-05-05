@@ -25,10 +25,15 @@ public class Data {
         npcMap = new HashMap<>();
         endingMap = new HashMap<>();
 
+//        if (FileResourceUtils.resourceExists("saved-data/rooms.json")) {
+//            loadRoomMap("saved-data/");
+//            loadNPCMap("saved-data/");
+//        } else {
+            loadRoomMap("data/");
+            loadNPCMap("data/");
+//        }
         loadTextMap();
-        loadRoomMap();
-        loadNPCMap();
-        endingsRoomMap();
+        loadEndingsMap();
     }
 
     /*
@@ -52,7 +57,7 @@ public class Data {
     /*
     * Use gson to convert json file to a hashmap
     * */
-    public static void loadRoomMap() {
+    public static void loadRoomMap(String dirName) {
         Type type = new TypeToken<Map<String, Room>>() {}.getType();
 
         try {
@@ -61,7 +66,7 @@ public class Data {
             // get class loader
             ClassLoader classLoader = Data.class.getClassLoader();
             // get resource from relative classloader path
-            InputStream inputStream = classLoader.getResourceAsStream("rooms.json");
+            InputStream inputStream = classLoader.getResourceAsStream(dirName + "rooms.json");
             // read stream
             Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
             // convert to map using gson
@@ -71,7 +76,7 @@ public class Data {
         }
     }
 //  Endings
-    public static void endingsRoomMap() {
+    public static void loadEndingsMap() {
         Type type = new TypeToken<Map<String, Endings>>() {}.getType();
 
         try {
@@ -80,7 +85,7 @@ public class Data {
             // get class loader
             ClassLoader classLoader = Data.class.getClassLoader();
             // get resource from relative classloader path
-            InputStream inputStream = classLoader.getResourceAsStream("endings.json");
+            InputStream inputStream = classLoader.getResourceAsStream("data/endings.json");
             // read stream
             Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
             // convert to map using gson
@@ -90,7 +95,7 @@ public class Data {
         }
     }
 
-    public static void loadNPCMap() {
+    public static void loadNPCMap(String dirName) {
         Type type = new TypeToken<Map<String, NPC>>() {}.getType();
 
         try {
@@ -99,7 +104,7 @@ public class Data {
             // get class loader
             ClassLoader classLoader = Data.class.getClassLoader();
             // get resource from relative classloader path
-            InputStream inputStream = classLoader.getResourceAsStream("npcs.json");
+            InputStream inputStream = classLoader.getResourceAsStream(dirName + "npcs.json");
             // read stream
             Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
             // convert to map using gson
@@ -107,5 +112,47 @@ public class Data {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void saveGame() {
+        System.out.println("Saving game...");
+//        saveRoomMap();
+//        saveNpcMap();
+    }
+
+    public static void saveRoomMap() {
+        String dirName = "saved-data/";
+        String fileName = "rooms.json";
+        FileResourceUtils.writeMapToJsonAndSave(roomMap, dirName, fileName);
+    }
+
+    public static void saveNpcMap() {
+        String dirName = "saved-data/";
+        String fileName = "npcs.json";
+        FileResourceUtils.writeMapToJsonAndSave(npcMap, dirName, fileName);
+    }
+
+    public static Map<String, String> getTextMap() {
+        return textMap;
+    }
+
+    public static void setTextMap(Map<String, String> textMap) {
+        Data.textMap = textMap;
+    }
+
+    public static Map<String, Room> getRoomMap() {
+        return roomMap;
+    }
+
+    public static void setRoomMap(Map<String, Room> roomMap) {
+        Data.roomMap = roomMap;
+    }
+
+    public static Map<String, NPC> getNpcMap() {
+        return npcMap;
+    }
+
+    public static void setNpcMap(Map<String, NPC> npcMap) {
+        Data.npcMap = npcMap;
     }
 }
