@@ -9,34 +9,24 @@ import java.util.Scanner;
 public class TextParser {
 //    INSTANCE VARIABLES
     private static final Scanner scanner = new Scanner(System.in);
-
     //    com.team3.forcemajeure.Main Menu text parser
     public static String textInputMainMenu() {
         String userInput = "  ";
         while (1 != userInput.split(" ").length) {
             System.out.print(">:");
             userInput = scanner.nextLine().toLowerCase().stripLeading().stripTrailing();
-<<<<<<< HEAD:src/main/java/TextParser.java
-//            if user puts start in Main Menu start the game
+//          if user puts start in com.team3.forcemajeure.Main Menu start the game
             if (userInput.equals("start")) {
                 userInput = "game";
             }
-//            if user puts quit in Main Menu cleanly exit game
-            else if (userInput.equals("quit")) {
-=======
-//            if user puts start in com.team3.forcemajeure.Main Menu start the game
-            if (userInput.equals("start")){
-                userInput = "game";
-            }
 //            if user puts quit in com.team3.forcemajeure.Main Menu cleanly exit game
-            else if (userInput.equals("quit")){
->>>>>>> baca770cf7bf72f35058c996d2a0b9d3e80ed091:src/main/java/com/team3/forcemajeure/util/TextParser.java
+            else if (userInput.equals("quit")) {
+                Data.saveGame();
                 System.out.println("Exiting the game");
-
                 System.exit(0);
-            } else if ("mute".equals(userInput)) {
-                return "mute";
-            }
+                } else if ("mute".equals(userInput)) {
+                    return "mute";
+                }
 //            User did not put in valid response
             else {
                 System.out.println(userInput + " Not valid command please put start or quit");
@@ -44,7 +34,6 @@ public class TextParser {
         }
         return userInput;
     }
-
 //    com.team3.forcemajeure.Game text parser runs during game takes 1 word or 2 word commands and if 1 word command executes them
 //    if 2 word command it will pass to gameScannerOutput()
     public static String gameScannerInput() {
@@ -91,15 +80,11 @@ public class TextParser {
             }
             player.setCurRoom(nextRoom);
         }
-<<<<<<< HEAD:src/main/java/TextParser.java
+
 //        TODO need method to look through user Inventory
-        else if (verb.contains("use")) {
-            switch (noun) {
-=======
 //        TODO need method to look through user com.team3.forcemajeure.util.Inventory
         else if(verb.contains("use")){
             switch (noun){
->>>>>>> baca770cf7bf72f35058c996d2a0b9d3e80ed091:src/main/java/com/team3/forcemajeure/util/TextParser.java
                 case "pepsimachine":
                     if (player.getCurRoom().description.contains("pepsimachine") &&
                             player.inventory.getInventory().contains("sanddollar")){

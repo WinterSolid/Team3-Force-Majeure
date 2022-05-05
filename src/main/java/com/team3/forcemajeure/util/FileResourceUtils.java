@@ -1,10 +1,8 @@
-<<<<<<< HEAD:src/main/java/FileResourceUtils.java
-import com.google.gson.Gson;
-=======
 package com.team3.forcemajeure.util;
 
+import com.google.gson.Gson;
+
 import com.team3.forcemajeure.Main;
->>>>>>> baca770cf7bf72f35058c996d2a0b9d3e80ed091:src/main/java/com/team3/forcemajeure/util/FileResourceUtils.java
 
 import java.io.*;
 import java.net.URL;
