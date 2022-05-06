@@ -29,6 +29,20 @@ public class Player {
             System.out.println("I dont see map in your inventory");
         }
     }
+    public int rollDicePlayer(){
+        int numberRolled;
+        numberRolled = (int) (Math.random() * (7-1) + 1);
+        return numberRolled;
+    }
+    public int rollDiceTotalPlayer(int count){
+        int total = 0;
+        for (int counter = 0; counter<count; counter++){
+            int rolled = rollDicePlayer();
+            System.out.println("You roll " + counter + " rolled a " + rolled + " total is " + total);
+            total = total + rolled;
+        }
+        return total;
+    }
 
     public Room getCurRoom() {
         return curRoom;

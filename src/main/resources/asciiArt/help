@@ -14,9 +14,10 @@ Help Screen:
     Map:
     Helps player navigate the world.
     look map --- pulls up the player map. X on map indicates current player location.
-    com.team3.forcemajeure.util.Inventory:
+    Inventory:
     Is a collection of user items.
     look inventory --- lets you see all game items collected
+
 
     Other Commands:
     help -- gives you this help screen

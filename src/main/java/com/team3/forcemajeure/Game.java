@@ -22,7 +22,15 @@ public class Game {
         Player player = new Player();
         // set player's current room to start room
         player.setCurRoom(startRoom);
-//        Starts com.team3.forcemajeure.Game
+//        TODO put enemy in an array that we loop through for encounters
+//        TODO enemies are created from a JSON
+//      Enemy Creation
+        Enemy gambler = new Enemy("gambler", 10, roomMap.get("WaitingRoom"),
+                "You thought you could just get the boatkey, Ha! lets roll for it with dice",
+                "Come back when you are feeling lucky",
+                "I am so embarassed I lost",
+                "boatkey", player);
+
         while (gameRunning) {
 //            check if ending game condition have been met
             if (player.getPlayerInventory().getInventory().contains("endgame")){
@@ -43,7 +51,14 @@ public class Game {
                     !player.getPlayerInventory().getInventory().contains("karma"))){
                 System.out.println(player.getCurRoom().getStory());
             }
-
+//            checks if enemy is around
+//            TODO loop through enemy of array when that is implemented
+            if (player.getCurRoom().equals(gambler.getLocation())) {
+                gambler.talk();
+                if (gambler.getHealth() > 0) {
+                    Battle.battle(gambler, player, 3);
+                }
+            }
 //            prompt User
             String response = TextParser.gameScannerInput();
           

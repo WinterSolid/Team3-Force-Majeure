@@ -124,8 +124,8 @@
   },
   "WaitingRoom": {
     "name": "WaitingRoom",
-    "description": "You see a bunch of chairs scattered across the room, \nthere is one upright chair in the center, with a sign that says I made it to an SDE and so can you. \nRight below the sign is the boat key." ,
-    "item": "boatkey",
+    "description": "You see a bunch of chairs scattered across the room, \nthere is one upright chair in the center, with a sign that says I made it to an SDE and so can you." ,
+    "item": "",
     "directions": {
       "north": "nothing",
       "south": "nothing",
