@@ -5,45 +5,40 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Room {
-    public String name;
-    public String description;
-    public String item;
-    public String story;
+    private String name;
+    private String description;
+    private String item;
+    private String story;
 //    public HashMap<String, String> item;
-    public HashMap<String, String> directions;
-    public HashMap<String, String> looking;
-    public List<String> npcs;
+    private HashMap<String, String> directions;
+    private HashMap<String, String> looking;
+    private List<String> npcs;
 
-
+// Getter and setter
     public String getName() {
         return this.name;
     }
-
-    String getDescription() {
+    public String getDescription() {
         return this.description;
     }
     public String getStory() {
         return this.story;
     }
-    String getItem() {
+    public String getItem() {
         return this.item;
     }
-    void removeItem(String item){
+    public void removeItem(String item){
         this.item = "none";
     }
-
-    String getRoomNameFromDirections(String direction) {
+    public String getRoomNameFromDirections(String direction) {
         return directions.get(direction);
     }
-
-    String getLookingDirection(String direction) {
+    public String getLookingDirection(String direction) {
         return looking.get(direction);
     }
-
-    List<String> getNpcs() {
+    public List<String> getNpcs() {
         return this.npcs;
     }
-
     public void displayRoomInfo() {
         String npcStr = "";
         if (getNpcs() != null) {

@@ -86,15 +86,15 @@ public class TextParser {
         else if(verb.contains("use")){
             switch (noun){
                 case "pepsimachine":
-                    if (player.getCurRoom().description.contains("pepsimachine") &&
-                            player.inventory.getInventory().contains("sanddollar")){
+                    if (player.getCurRoom().getDescription().contains("pepsimachine") &&
+                            player.getPlayerInventory().getInventory().contains("sanddollar")){
                         System.out.println("You got a pepsi");
-                        player.inventory.appendInventory("pepsi");
-                        player.inventory.removeItemInventory("sanddollar");
+                        player.getPlayerInventory().appendInventory("pepsi");
+                        player.getPlayerInventory().removeItemInventory("sanddollar");
                         System.out.println("sanddollar removed");
                     }
-                    else if(player.getCurRoom().description.contains("pepsimachine")
-                            && !player.inventory.getInventory().contains("sanddollar")){
+                    else if(player.getCurRoom().getDescription().contains("pepsimachine")
+                            && !player.getPlayerInventory().getInventory().contains("sanddollar")){
                         System.out.println("Vending Mactine takes sanddollars does not look like " +
                                 "you have any in inventory");
                     }
@@ -104,46 +104,46 @@ public class TextParser {
                     break;
                 case "pepsi":
                     if (player.getCurRoom().getName().equals("DoctorsOffice") &&
-                            player.inventory.getInventory().contains("pepsi")){
-                        player.inventory.appendInventory("karma");
-                        player.inventory.removeItemInventory("pepsi");
+                            player.getPlayerInventory().getInventory().contains("pepsi")){
+                        player.getPlayerInventory().appendInventory("karma");
+                        player.getPlayerInventory().removeItemInventory("pepsi");
                         System.out.println("Larson starts coming to remember the glory, the Java conventions, the concepts. You don't know what’s going on with him, but you are glad you helped a brother out. But you’ve got to get to the bachelor party, no time to hear Larson stumble through his thoughts. He asks if he can join you at the SDE bachelor Party, but you know the beach might be good thing for him if he has to get his environment working.\\n\"");
                         System.out.println("type 'use larson' to get Larson to boat or leave him");
                     }
                     break;
                 case "larson":
                     if (player.getCurRoom().getName().equals("DoctorsOffice") &&
-                    player.inventory.getInventory().contains("karma")){
+                    player.getPlayerInventory().getInventory().contains("karma")){
 //                        TODO add flag that will figure out if user has given Larson pepsi
-                        player.inventory.appendInventory("larson");
-                        player.inventory.removeItemInventory("karma");
+                        player.getPlayerInventory().appendInventory("larson");
+                        player.getPlayerInventory().removeItemInventory("karma");
                         System.out.println("Larsons joins you");
                     }
                     break;
 //                    TODO need to add way to kick player back to main menu
 //                com.team3.forcemajeure.Game endings
                 case "boatkey":
-                    if(player.getCurRoom().description.contains("boat") &&
-                            player.inventory.getInventory().contains("boatkey") &&
-                            !player.inventory.getInventory().contains("karma") &&
-                            !player.inventory.getInventory().contains("larson")){
+                    if(player.getCurRoom().getDescription().contains("boat") &&
+                            player.getPlayerInventory().getInventory().contains("boatkey") &&
+                            !player.getPlayerInventory().getInventory().contains("karma") &&
+                            !player.getPlayerInventory().getInventory().contains("larson")){
                         System.out.println(endingsMap.get("endings").okcase);
-                        player.inventory.appendInventory("endgame");
+                        player.getPlayerInventory().appendInventory("endgame");
                     }
-                    else if (player.getCurRoom().description.contains("boat") &&
-                            player.inventory.getInventory().contains("boatkey") &&
-                            player.inventory.getInventory().contains("karma")){
+                    else if (player.getCurRoom().getDescription().contains("boat") &&
+                            player.getPlayerInventory().getInventory().contains("boatkey") &&
+                            player.getPlayerInventory().getInventory().contains("karma")){
                         System.out.println(endingsMap.get("endings").bestcase);
-                        player.inventory.appendInventory("endgame");
+                        player.getPlayerInventory().appendInventory("endgame");
                     }
-                    else if (player.getCurRoom().description.contains("boat") &&
-                            player.inventory.getInventory().contains("boatkey") &&
-                            player.inventory.getInventory().contains("larson")){
+                    else if (player.getCurRoom().getDescription().contains("boat") &&
+                            player.getPlayerInventory().getInventory().contains("boatkey") &&
+                            player.getPlayerInventory().getInventory().contains("larson")){
                         System.out.println(endingsMap.get("endings").worstcase);
-                        player.inventory.appendInventory("loopgame");
+                        player.getPlayerInventory().appendInventory("loopgame");
                     }
-                    else if (player.getCurRoom().description.contains("boat") &&
-                            !player.inventory.getInventory().contains("boatkey"))
+                    else if (player.getCurRoom().getDescription().contains("boat") &&
+                            !player.getPlayerInventory().getInventory().contains("boatkey"))
                         System.out.println("Need key for boat");
                     else{
                         System.out.println("What boat?");
@@ -157,7 +157,7 @@ public class TextParser {
         else if (verb.contains("look")) {
             switch (noun) {
                 case "inventory":
-                    System.out.println(player.inventory.getInventory());
+                    System.out.println(player.getPlayerInventory().getInventory());
                     break;
                 case "map":
                     player.readMap();
@@ -174,7 +174,7 @@ public class TextParser {
                     System.out.println("You cannot interact with that item.");
             }
         } else if ("talk".equals(verb)) {
-            Room curRoom = player.curRoom;
+            Room curRoom = player.getCurRoom();
             String titleCasedName = noun.substring(0, 1).toUpperCase() + noun.substring(1).toLowerCase();
 
             if (curRoom.getNpcs() == null || curRoom.getNpcs().size() == 0) {
@@ -191,9 +191,9 @@ public class TextParser {
             if (noun.equals(player.getCurRoom().getItem())){
                 System.out.println("You picked up " + noun);
 //                add item to player inventory
-                player.inventory.appendInventory(noun);
+                player.getPlayerInventory().appendInventory(noun);
 //                remove item from room
-                player.curRoom.removeItem(noun);
+                player.getCurRoom().removeItem(noun);
 
             }
             else {
