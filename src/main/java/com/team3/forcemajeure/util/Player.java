@@ -3,17 +3,14 @@ package com.team3.forcemajeure.util;
 public class Player {
 
 //    Variables
-   private   Room curRoom;
-
-
-
-    private Inventory playerInventory = new Inventory("map");
+    public  Room curRoom;
+    public Inventory inventory;
     private String playerMap;
-    //    ArrayList<String> inventory = new ArrayList<>();
 
 //    Constructor
     public Player() {
 //        starting player off with map for right now
+        inventory = Data.getInventory();
         this.playerMap = Data.getTextMap().get("playerMap");
     }
 
