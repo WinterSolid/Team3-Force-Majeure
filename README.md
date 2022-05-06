@@ -1,6 +1,6 @@
 ![Forcemajuereasc](https://user-images.githubusercontent.com/58896705/165787282-819b70e6-4680-4238-b0c6-33d85555aa83.jpg)
-![Screenshot 2022-04-26 130021](https://user-images.githubusercontent.com/58896705/167166112-1601496b-c540-4a0b-846d-d2e1f6fe1288.jpg)
-# Lyle J. , Tomas H., Zakee T.
+![Screenshot 2022-04-26 130021](https://user-images.githubusercontent.com/58896705/167166796-838344a4-a2a3-415c-b172-d12688ee665f.jpg)
+
 ## --
 # Force Majuere, a text-based adventure game.
 
