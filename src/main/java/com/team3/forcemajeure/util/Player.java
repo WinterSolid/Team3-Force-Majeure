@@ -18,7 +18,7 @@ public class Player {
 //    readMap prints out map for user and replaces location on map with currentRoom he is in with [X]
     public void readMap() {
         String playerLocation = getCurRoom().getName();
-        if (playerInventory.getInventory().contains("map")){
+        if (inventory.getInventory().contains("map")){
             System.out.println(playerMap.replace(playerLocation+"[ ]",
                     playerLocation+"[X]"));
         }
@@ -46,11 +46,11 @@ public class Player {
     }
 
     public Inventory getPlayerInventory() {
-        return playerInventory;
+        return inventory;
     }
 
     public void setPlayerInventory(Inventory playerInventory) {
-        this.playerInventory = playerInventory;
+        this.inventory = playerInventory;
     }
 
     public String getPlayerMap() {
