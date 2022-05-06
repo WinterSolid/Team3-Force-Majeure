@@ -2,20 +2,17 @@ package com.team3.forcemajeure.util;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.team3.forcemajeure.Main;
 
-import javax.annotation.processing.Filer;
 import java.io.*;
 import java.lang.reflect.Type;
-import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class Data {
-    public static Gson gson = new Gson();
-    public static Map<String, String> textMap;
-    public static Map<String, Room> roomMap;
+    private static final Gson gson = new Gson();
+    private static Map<String, String> textMap;
+    private static Map<String, Room> roomMap;
     public static Map<String, Endings> endingMap;
     public static Map<String, NPC> npcMap;
     public static final String[] TEXT_FILE_NAMES =
@@ -95,7 +92,8 @@ public class Data {
             // get class loader
             ClassLoader classLoader = Data.class.getClassLoader();
             // get resource from relative classloader path
-            InputStream inputStream = classLoader.getResourceAsStream("data/endings.json");
+            InputStream inputStream =
+                    classLoader.getResourceAsStream("data/endings.json");
             // read stream
             Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
             // convert to map using gson
@@ -117,7 +115,7 @@ public class Data {
             try {
                 inputStream = new FileInputStream(rooms);
                 reader = new InputStreamReader(new BufferedInputStream(inputStream));
-                npcMap = gson.fromJson(reader, type);
+                setNpcMap(gson.fromJson(reader, type));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -130,7 +128,7 @@ public class Data {
                 // read stream
                 reader = new InputStreamReader(Objects.requireNonNull(inputStream));
                 // convert to map using gson
-                npcMap = gson.fromJson(reader, type);
+                setNpcMap(gson.fromJson(reader, type));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -144,18 +142,23 @@ public class Data {
         }
         saveRoomMap();
         saveNpcMap();
+        saveInventory();
     }
 
-    public static void saveRoomMap() {
+    private static void saveRoomMap() {
         String dirName = "saved/";
         String fileName = "rooms.json";
         FileResourceUtils.convertMapToJsonAndSaveToDir(roomMap, dirName, fileName);
     }
 
-    public static void saveNpcMap() {
+    private static void saveNpcMap() {
         String dirName = "saved/";
         String fileName = "npcs.json";
         FileResourceUtils.convertMapToJsonAndSaveToDir(npcMap, dirName, fileName);
+    }
+    
+    private static void saveInventory() {
+        // TODO: 5/6/2022  
     }
 
     public static Map<String, String> getTextMap() {
@@ -180,5 +183,9 @@ public class Data {
 
     public static void setNpcMap(Map<String, NPC> npcMap) {
         Data.npcMap = npcMap;
+    }
+
+    public static Map<String, Endings> getEndingMap() {
+        return endingMap;
     }
 }

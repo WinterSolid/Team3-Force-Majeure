@@ -55,6 +55,6 @@ public class MainMenu {
 
     private void welcome() {
 //        prints com.team3.forcemajeure.MainMenu Ascii
-        System.out.println(Data.textMap.get("mainMenu"));
+        System.out.println(Data.getTextMap().get("mainMenu"));
     }
 }
