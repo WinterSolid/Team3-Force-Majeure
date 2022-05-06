@@ -6,12 +6,13 @@ public class Player {
 //    Variables
    public  Room curRoom;
 //    ArrayList<String> inventory = new ArrayList<>();
-public Inventory inventory = new Inventory("map");
-    String playerMap;
+    public Inventory inventory;
+    private String playerMap;
 
 //    Constructor
     public Player() {
 //        starting player off with map for right now
+        inventory = Data.getInventory();
         this.playerMap = Data.getTextMap().get("playerMap");
     }
 

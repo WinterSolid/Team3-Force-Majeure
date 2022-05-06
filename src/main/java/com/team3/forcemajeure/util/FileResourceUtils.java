@@ -56,11 +56,20 @@ public class FileResourceUtils {
         return dir.mkdir();
     }
 
-    public static void convertMapToJsonAndSaveToDir(Map<String, ?> map, String dirName, String fileName) {
-        String path = dirName + fileName;
+    public static void convertMapToJsonAndSaveToDir(Map<String, ?> map, String path) {
         try {
             Writer writer = new FileWriter(path);
             new Gson().toJson(map, writer);
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void convertInventoryToJsonAndSaveToDir(Inventory inventory, String path) {
+        try {
+            Writer writer = new FileWriter(path);
+            new Gson().toJson(inventory, writer);
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();

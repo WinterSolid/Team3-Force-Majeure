@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,6 +16,7 @@ public class Data {
     private static Map<String, Room> roomMap;
     public static Map<String, Endings> endingMap;
     public static Map<String, NPC> npcMap;
+    public static Inventory inventory;
     public static final String[] TEXT_FILE_NAMES =
             new String[] {"help", "intro", "mainMenu", "playerMap"};
 
@@ -25,11 +27,13 @@ public class Data {
         roomMap = new HashMap<>();
         npcMap = new HashMap<>();
         endingMap = new HashMap<>();
+        inventory = new Inventory("map");
 
         loadRoomMap();
         loadNPCMap();
         loadTextMap();
         loadEndingsMap();
+        loadInventory();
     }
 
     /*
@@ -135,6 +139,25 @@ public class Data {
         }
     }
 
+    public static void loadInventory() {
+        Type type = new TypeToken<Inventory>() {}.getType();
+        InputStream inputStream;
+        Reader reader;
+
+        if (FileResourceUtils.directoryExists("saved")) {
+            String userDir = System.getProperty("user.dir") + File.separator;
+            File inventory = new File(userDir + "saved/inventory.json");
+
+            try {
+                inputStream = new FileInputStream(inventory);
+                reader = new InputStreamReader(new BufferedInputStream(inputStream));
+                setInventory(gson.fromJson(reader, type));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void saveGame() {
         System.out.println("Saving game...");
         if (!FileResourceUtils.directoryExists("saved")) {
@@ -146,19 +169,15 @@ public class Data {
     }
 
     private static void saveRoomMap() {
-        String dirName = "saved/";
-        String fileName = "rooms.json";
-        FileResourceUtils.convertMapToJsonAndSaveToDir(roomMap, dirName, fileName);
+        FileResourceUtils.convertMapToJsonAndSaveToDir(roomMap, "saved/rooms.json");
     }
 
     private static void saveNpcMap() {
-        String dirName = "saved/";
-        String fileName = "npcs.json";
-        FileResourceUtils.convertMapToJsonAndSaveToDir(npcMap, dirName, fileName);
+        FileResourceUtils.convertMapToJsonAndSaveToDir(npcMap, "saved/npcs.json");
     }
     
     private static void saveInventory() {
-        // TODO: 5/6/2022  
+        FileResourceUtils.convertInventoryToJsonAndSaveToDir(getInventory(), "saved/inventory.json");
     }
 
     public static Map<String, String> getTextMap() {
@@ -187,5 +206,13 @@ public class Data {
 
     public static Map<String, Endings> getEndingMap() {
         return endingMap;
+    }
+
+    public static Inventory getInventory() {
+        return inventory;
+    }
+
+    public static void setInventory(Inventory inventory) {
+        Data.inventory = inventory;
     }
 }
