@@ -16,11 +16,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public class FileResourceUtils {
-    private FileResourceUtils() {
-    }
+    private FileResourceUtils() {}
 
     public static String getFileAsStringFromResourceStream(String fileName) {
-        InputStream inputStream = getClassLoader().getResourceAsStream(fileName);
+        InputStream inputStream = getInputStreamFromResource(fileName);
         Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
 
         try {
@@ -48,18 +47,8 @@ public class FileResourceUtils {
         return resource != null;
     }
 
-    public static URL getResourcePath(String fileName) {
-        System.out.println(getClassLoader().getResource("saved"));
-        return Objects.requireNonNull(getClassLoader().getResource(fileName));
-    }
-
     public static ClassLoader getClassLoader() {
         return Main.class.getClassLoader();
-    }
-
-    public static String buildResourcePath(String dirName, String fileName) {
-        System.out.println(getClassLoader());
-        return getClassLoader().getResource(dirName) + fileName;
     }
 
     public static boolean createDirectory(String dirName) {
@@ -78,48 +67,49 @@ public class FileResourceUtils {
         }
     }
 
-//    public static void getJarDirectoryPath() {
-//        String path = null;
-//        try {
-//            path = new File(Main.class.getProtectionDomain().getCodeSource().getLocation()
-//                    .toURI()).getPath();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println(path);
-//    }
+    // This may not work
+    public static void getJarDirectoryPath() {
+        String path = null;
+        try {
+            path = new File(Main.class.getProtectionDomain().getCodeSource().getLocation()
+                    .toURI()).getPath();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(path);
+    }
 
-//    public static Path getFilePath(String filePath) {
-//        Path path = Paths.get("saved");
-//        return path.toAbsolutePath();
-//    }
+    public static Path getAbsoluteFilePath(String filePath) {
+        Path path = Paths.get("saved");
+        return path.toAbsolutePath();
+    }
 
 
-//    public static void getJarDirectory() {
-//        String path = "saved";
-//        File jarFile = null;
-//        try {
-//            jarFile = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//        }
-//        if (jarFile.isFile()) {
-//            System.out.println("here");
-//            try {
-//                JarFile jar = new JarFile(jarFile);
-//                Enumeration<JarEntry> entries = jar.entries();
-//                while (entries.hasMoreElements()) {
-//                    String name = entries.nextElement().getName();
-//                    System.out.println(name);
-//                    if (name.startsWith(path)) {
-//                        System.out.println(name);
-//                    }
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+    public static void getFilesInJar() {
+        String path = "saved";
+        File jarFile = null;
+        try {
+            jarFile = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        if (jarFile.isFile()) {
+            System.out.println("here");
+            try {
+                JarFile jar = new JarFile(jarFile);
+                Enumeration<JarEntry> entries = jar.entries();
+                while (entries.hasMoreElements()) {
+                    String name = entries.nextElement().getName();
+                    System.out.println(name);
+                    if (name.startsWith(path)) {
+                        System.out.println(name);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public static boolean directoryExists(String dirName) {
         String userDir = System.getProperty("user.dir") + File.separator;

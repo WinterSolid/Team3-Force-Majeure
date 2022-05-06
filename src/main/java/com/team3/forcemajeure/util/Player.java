@@ -14,7 +14,7 @@ public class Player {
 //    Constructor
     public Player() {
 //        starting player off with map for right now
-        this.playerMap = Data.textMap.get("playerMap");
+        this.playerMap = Data.getTextMap().get("playerMap");
     }
 
 //    Business Methods

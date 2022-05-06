@@ -5,10 +5,11 @@ import java.util.ArrayList;
 public class Inventory {
 
 //    Variables
-    ArrayList<String> inventory = new ArrayList<>();
+    ArrayList<String> inventory;
 
 //    Constructor
     public Inventory(String item){
+        inventory = new ArrayList<>();
         inventory.add(item);
     }
 

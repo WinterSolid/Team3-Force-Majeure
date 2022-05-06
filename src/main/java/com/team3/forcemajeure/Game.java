@@ -13,9 +13,9 @@ public class Game {
 //    primarly runs the game
     void runGame() {
 //        Sets up all objects for the game
-        Map<String, Room> roomMap = Data.roomMap;
-        Map<String, NPC> npcMap = Data.npcMap;
-        Map<String, Endings> endingsMap = Data.endingMap;
+        Map<String, Room> roomMap = Data.getRoomMap();
+        Map<String, NPC> npcMap = Data.getNpcMap();
+        Map<String, Endings> endingsMap = Data.getEndingMap();
         // get starting room ("Water")
         Room startRoom = roomMap.get("WaterWreckage");
         // init com.team3.forcemajeure.util.Player
