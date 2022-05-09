@@ -158,6 +158,10 @@ public class Data {
         }
     }
 
+    public static void clearInventory() {
+        setInventory(new Inventory("map"));
+    }
+
     /*
     * For saving the game data, the contained methods save room, npc, and inventory data.
     * Runs after the user quits the game. Creates saved directory if not already there.
