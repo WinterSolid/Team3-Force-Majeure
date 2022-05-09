@@ -34,9 +34,11 @@ public class Game {
         while (gameRunning) {
 //            check if ending game condition have been met
             if (player.getPlayerInventory().getInventory().contains("endgame")){
+                Data.clearInventory();
                 break;
             }
             if (player.getPlayerInventory().getInventory().contains("loopgame")){
+                Data.clearInventory();
                 runGame();
             }
 
