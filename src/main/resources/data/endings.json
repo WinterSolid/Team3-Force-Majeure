@@ -1,0 +1,7 @@
+{
+  "endings": {
+    "bestcase": "GAME COMPLETE!!! \nYou helped Larson out with a pepsi,but chose to leave him, you make it to the SDE bachelor Party with a good feeling that you helped a brother out.\n",
+    "okcase": "GAME COMPLETE!!! \nYou did not help Larson with pepsi, you still make it to the SDE bachelor Party but you feel like you are missing some kind of an algorithm or data structure. Something feels off.\n",
+    "worstcase": "GAME COMPLETE!!! \nLarson comes with you after, helping him with a pepsi.\nHe takes the keys and he cranks up engine and drives the boat. \nYou rest your eyes for a minute and awaken to a sound of crashing into same island. Back where you started.\n"
+  }
+}
