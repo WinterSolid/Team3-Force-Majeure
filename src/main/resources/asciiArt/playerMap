@@ -9,7 +9,7 @@
 +-------------+     |   |
 |             |     |NorthHall2[ ]
 |             +-----+   |
-|WaitingRoom[ ] WestHallway[ ]
+|WaitingRoom[ ]   *<-WestHallway[ ]
 |             +-----+   |
 |             |     |   |
 +-------------+     |NorthHallway[ ]
@@ -18,7 +18,7 @@
             |                |
             |                |
             |   Lobby[ ]     |
-            |                |
+            |            *Pepsi_Machine
             +------\ \-------+
                     *
                     *             |\

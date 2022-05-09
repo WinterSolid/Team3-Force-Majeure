@@ -15,6 +15,7 @@
      Please press help while in game for quick tutorial.
 
              Please select [start,quit]:
-             [start] New Game
+             [start] New Game / continue
+                     (If game was quit properly press start to resume)
              [quit]  Quit Game
              [mute]  Mute Sound

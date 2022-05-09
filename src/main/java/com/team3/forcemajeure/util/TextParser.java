@@ -107,8 +107,8 @@ public class TextParser {
                             player.getPlayerInventory().getInventory().contains("pepsi")){
                         player.getPlayerInventory().appendInventory("karma");
                         player.getPlayerInventory().removeItemInventory("pepsi");
-                        System.out.println("Larson starts coming to remember the glory, the Java conventions, the concepts. You don't know what’s going on with him, but you are glad you helped a brother out. But you’ve got to get to the bachelor party, no time to hear Larson stumble through his thoughts. He asks if he can join you at the SDE bachelor Party, but you know the beach might be good thing for him if he has to get his environment working.\\n\"");
-                        System.out.println("type 'use larson' to get Larson to boat or leave him");
+                        System.out.println("Larson starts coming to remember the glory, the Java conventions, the concepts. You don't know what’s going on with him, but you are glad you helped a brother out. But you’ve got to get to the bachelor party, no time to hear Larson stumble through his thoughts. He asks if he can join you at the SDE bachelor Party, but you know the beach might be good thing for him, he has to get his environment working again.\\n\"");
+                        System.out.println("type 'use larson' to get Larson to join you or do nothing and leave him (choice)");
                     }
                     break;
                 case "larson":
