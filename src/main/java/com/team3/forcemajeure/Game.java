@@ -63,7 +63,7 @@ public class Game {
             }
 //            prompt User
             String response = TextParser.gameScannerInput();
-          
+            clrScreen();
             if ("mute".equals(response)) {
                 audio.toggleMute();
             } else {
@@ -71,6 +71,13 @@ public class Game {
             }
         }
     }
+//     Clears screen
+    public void clrScreen(){
+        for (int i = 0; i < 60; ++i){
+            System.out.println();
+        }
+    }
+
 
     public void setGameRunning(boolean gameRunning) {
         this.gameRunning = gameRunning;

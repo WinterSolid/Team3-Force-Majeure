@@ -161,7 +161,6 @@ public class TextParser {
                     break;
                 case "map":
                     player.readMap();
-                    System.out.println("here");
                     break;
                 case "north":
                 case "east":
