@@ -52,7 +52,7 @@ public class Room {
                 getDescription() +
                 "\n" +
                 npcStr +
-                "You see: " +
+                "Items seen: " +
                 getItem();
         System.out.println(str);
     }
