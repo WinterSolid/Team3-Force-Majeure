@@ -7,8 +7,6 @@ import com.team3.forcemajeure.Main;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.Objects;
@@ -18,6 +16,10 @@ import java.util.jar.JarFile;
 public class FileResourceUtils {
     private FileResourceUtils() {}
 
+    /*
+    * Converts text file resource to InputStream, reads each character into a buffer,
+    * and returns the data as a string.
+    * */
     public static String getFileAsStringFromResourceStream(String fileName) {
         InputStream inputStream = getInputStreamFromResource(fileName);
         Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
@@ -37,9 +39,13 @@ public class FileResourceUtils {
         return null;
     }
 
+    /*
+    * Returns resource from fileName as BufferedInputStream
+    * */
     public static InputStream getInputStreamFromResource(String fileName) {
         return new BufferedInputStream(
-                Objects.requireNonNull(getClassLoader().getResourceAsStream(fileName)));
+                Objects.requireNonNull(
+                        getClassLoader().getResourceAsStream(fileName)));
     }
 
     public static boolean resourceExists(String fileName) {
@@ -56,7 +62,12 @@ public class FileResourceUtils {
         return dir.mkdir();
     }
 
-    public static void convertMapToJsonAndSaveToDir(Map<String, ?> map, String path) {
+    /*
+    * Converts HashMap to JSON using GSON and writes it to a specified file path
+    * */
+    public static void convertMapToJsonAndSaveToDir(
+            Map<String, ?> map,
+            String path) {
         try {
             Writer writer = new FileWriter(path);
             new Gson().toJson(map, writer);
@@ -66,7 +77,12 @@ public class FileResourceUtils {
         }
     }
 
-    public static void convertInventoryToJsonAndSaveToDir(Inventory inventory, String path) {
+    /*
+    * Same as above, but takes in non-map objects
+    * */
+    public static void convertInventoryToJsonAndSaveToDir(
+            Inventory inventory,
+            String path) {
         try {
             Writer writer = new FileWriter(path);
             new Gson().toJson(inventory, writer);
@@ -76,33 +92,37 @@ public class FileResourceUtils {
         }
     }
 
-    // This may not work
+    // Just for reference
     public static void getJarDirectoryPath() {
         String path = null;
         try {
-            path = new File(Main.class.getProtectionDomain().getCodeSource().getLocation()
-                    .toURI()).getPath();
+            path = new File(Main.class
+                    .getProtectionDomain()
+                    .getCodeSource()
+                    .getLocation()
+                    .toURI())
+                    .getPath();
         } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println(path);
     }
 
-    public static Path getAbsoluteFilePath(String filePath) {
-        Path path = Paths.get("saved");
-        return path.toAbsolutePath();
-    }
-
-
+    // For reference, shows you all files in your jar
     public static void getFilesInJar() {
         String path = "saved";
         File jarFile = null;
         try {
-            jarFile = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+            jarFile = new File(Main.class
+                    .getProtectionDomain()
+                    .getCodeSource()
+                    .getLocation()
+                    .toURI()
+                    .getPath());
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        if (jarFile.isFile()) {
+        if (Objects.requireNonNull(jarFile).isFile()) {
             System.out.println("here");
             try {
                 JarFile jar = new JarFile(jarFile);

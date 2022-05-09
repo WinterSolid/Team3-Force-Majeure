@@ -1,15 +1,22 @@
 package com.team3.forcemajeure.util;
 
+import static com.team3.forcemajeure.util.FileResourceUtils.*;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/*
+* This is a Singleton-like class that is used to statically load
+* all game data. It can be referenced globally. All of the map loading methods
+* are the same, I couldn't figure out how to make one reusable method.
+* This class uses many helper methods from FileResourceUtils.
+* */
 public class Data {
     private static final Gson gson = new Gson();
     private static Map<String, String> textMap;
@@ -37,8 +44,8 @@ public class Data {
     }
 
     /*
-    * Loop through text file names. For each name, use the fileResourceUtils
-    * method to get text file content as string. Then, add text file content
+    * Loop through text file names, and for each name, use the fileResourceUtils
+    * method to get the text file content as a string. Then, add text file content
     * to map as a value, where its key is the file name.
     * */
     public static void loadTextMap() {
@@ -46,7 +53,7 @@ public class Data {
             String fileName = "asciiArt/" + name;
             try {
                 String data =
-                        FileResourceUtils.getFileAsStringFromResourceStream(fileName);
+                        getFileAsStringFromResourceStream(fileName);
                 textMap.put(name, data);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -55,18 +62,24 @@ public class Data {
     }
 
     /*
-    * Use gson to convert json file to a hashmap
+    * Uses GSON to convert JSON file to a HashMap.
+    * All of the other map loading methods below are the same.
     * */
     public static void loadRoomMap() {
+        // You must specify the type of the output HashMap
         Type type = new TypeToken<Map<String, Room>>() {}.getType();
         InputStream inputStream;
         Reader reader;
 
-        if (FileResourceUtils.directoryExists("saved")) {
+        // If saved directory exists, load the saved game data from there.
+        if (directoryExists("saved")) {
+            // Gets folder the JAR sits in
             String userDir = System.getProperty("user.dir") + File.separator;
+            // Make a file from the specified path
             File rooms = new File(userDir + "saved/rooms.json");
 
             try {
+                // Get resource methods don't work outside the JAR, use FileInputStream
                 inputStream = new FileInputStream(rooms);
                 reader = new InputStreamReader(new BufferedInputStream(inputStream));
                 roomMap = gson.fromJson(reader, type);
@@ -74,36 +87,14 @@ public class Data {
                 e.printStackTrace();
             }
         } else {
+            // If there is no saved directory, load starting game data
             try {
-                // get class loader
-                ClassLoader classLoader = FileResourceUtils.getClassLoader();
-                // get resource from relative classloader path
-                inputStream = classLoader.getResourceAsStream("data/" + "rooms.json");
-                // read stream
+                inputStream = getClassLoader().getResourceAsStream("data/rooms.json");
                 reader = new InputStreamReader(Objects.requireNonNull(inputStream));
-                // convert to map using gson
-                roomMap = gson.fromJson(reader, type);
+                setRoomMap(gson.fromJson(reader, type));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-    }
-//  Endings
-    public static void loadEndingsMap() {
-        Type type = new TypeToken<Map<String, Endings>>() {}.getType();
-
-        try {
-            // get class loader
-            ClassLoader classLoader = Data.class.getClassLoader();
-            // get resource from relative classloader path
-            InputStream inputStream =
-                    classLoader.getResourceAsStream("data/endings.json");
-            // read stream
-            Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
-            // convert to map using gson
-            endingMap = gson.fromJson(reader, type);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -112,7 +103,7 @@ public class Data {
         InputStream inputStream;
         Reader reader;
 
-        if (FileResourceUtils.directoryExists("saved")) {
+        if (directoryExists("saved")) {
             String userDir = System.getProperty("user.dir") + File.separator;
             File rooms = new File(userDir + "saved/npcs.json");
 
@@ -125,17 +116,26 @@ public class Data {
             }
         } else {
             try {
-                // get class loader
-                ClassLoader classLoader = FileResourceUtils.getClassLoader();
-                // get resource from relative classloader path
-                inputStream = classLoader.getResourceAsStream("data/" + "npcs.json");
-                // read stream
+                inputStream = getClassLoader().getResourceAsStream("data/npcs.json");
                 reader = new InputStreamReader(Objects.requireNonNull(inputStream));
-                // convert to map using gson
                 setNpcMap(gson.fromJson(reader, type));
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    //  Endings map never changes, so load from resources
+    public static void loadEndingsMap() {
+        Type type = new TypeToken<Map<String, Endings>>() {}.getType();
+
+        try {
+            InputStream inputStream =
+                    getClassLoader().getResourceAsStream("data/endings.json");
+            Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream));
+            setEndingMap(gson.fromJson(reader, type));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -144,7 +144,7 @@ public class Data {
         InputStream inputStream;
         Reader reader;
 
-        if (FileResourceUtils.directoryExists("saved")) {
+        if (directoryExists("saved")) {
             String userDir = System.getProperty("user.dir") + File.separator;
             File inventory = new File(userDir + "saved/inventory.json");
 
@@ -158,10 +158,14 @@ public class Data {
         }
     }
 
+    /*
+    * For saving the game data, the contained methods save room, npc, and inventory data.
+    * Runs after the user quits the game. Creates saved directory if not already there.
+    * */
     public static void saveGame() {
         System.out.println("Saving game...");
-        if (!FileResourceUtils.directoryExists("saved")) {
-            FileResourceUtils.createDirectory("saved");
+        if (!directoryExists("saved")) {
+            createDirectory("saved");
         }
         saveRoomMap();
         saveNpcMap();
@@ -169,15 +173,15 @@ public class Data {
     }
 
     private static void saveRoomMap() {
-        FileResourceUtils.convertMapToJsonAndSaveToDir(roomMap, "saved/rooms.json");
+        convertMapToJsonAndSaveToDir(roomMap, "saved/rooms.json");
     }
 
     private static void saveNpcMap() {
-        FileResourceUtils.convertMapToJsonAndSaveToDir(npcMap, "saved/npcs.json");
+        convertMapToJsonAndSaveToDir(npcMap, "saved/npcs.json");
     }
     
     private static void saveInventory() {
-        FileResourceUtils.convertInventoryToJsonAndSaveToDir(getInventory(), "saved/inventory.json");
+        convertInventoryToJsonAndSaveToDir(getInventory(), "saved/inventory.json");
     }
 
     public static Map<String, String> getTextMap() {
@@ -206,6 +210,10 @@ public class Data {
 
     public static Map<String, Endings> getEndingMap() {
         return endingMap;
+    }
+
+    public static void setEndingMap(Map<String,Endings> e) {
+        endingMap = e;
     }
 
     public static Inventory getInventory() {
