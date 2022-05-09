@@ -1,5 +1,6 @@
+package com.team3.forcemajeure.util;
+
 import javax.sound.sampled.*;
-import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.List;
 
@@ -23,20 +24,18 @@ public class Audio implements Runnable {
         String fileNameMP3 = "audio/" + name + ".mp3";
         boolean isMP3 = FileResourceUtils.resourceExists(fileNameMP3);
         String fileName = isMP3 ? fileNameMP3 : fileNameWav;
-        AudioInputStream ais = null;
-
+        AudioInputStream audioInputStream = null;
 
         try {
             InputStream inputStream = FileResourceUtils.getInputStreamFromResource(fileName);
-            InputStream buffInputStream = new BufferedInputStream(inputStream);
-            ais = AudioSystem.getAudioInputStream(buffInputStream);
+            audioInputStream = AudioSystem.getAudioInputStream(inputStream);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
             clip = AudioSystem.getClip();
-            clip.open(ais);
+            clip.open(audioInputStream);
             clip.start();
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,8 +65,7 @@ public class Audio implements Runnable {
     }
 
     public void toggleMute() {
-        boolean isMuted = getMuted();
-        if (isMuted) {
+        if (getMuted()) {
             unMute();
         } else {
             mute();

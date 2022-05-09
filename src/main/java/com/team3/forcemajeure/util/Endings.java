@@ -1,4 +1,4 @@
-
+package com.team3.forcemajeure.util;
 /*
  * Class used for getting game endings
  */
@@ -21,6 +21,4 @@ public class Endings {
     String getWorstcase() {
         return this.worstcase;
     }
-
-
 }

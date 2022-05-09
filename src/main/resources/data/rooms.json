@@ -20,6 +20,7 @@
     "name": "Beach",
     "description": "You are on the beach, feel the sand burning your feet,\nthere is a boat dock east and Hospital entrance north.",
     "item": "sanddollar",
+    "story": "You hear faint screams coming from the north thats in the the hospital",
     "directions": {
       "north": "Lobby",
       "south": "Water",
@@ -27,7 +28,7 @@
       "west": "nothing"
     },
     "looking": {
-      "north": "A small island ahead you see a building",
+      "north": "A building",
       "south": "Water, you just left",
       "east": "A hospital boat",
       "west": "nothing,but empty beach"
@@ -35,7 +36,7 @@
   },
   "Boat": {
     "name": "Boat",
-    "description": "You walk into a loading dock and see a boat. On the boat is a sign that says 'if needed please use keys are are in hostpital'",
+    "description": "You walk into a loading dock and see a boat. On the boat is a sign that says 'if needed please use keys are are in hospital'",
     "item": "nothing",
     "directions": {
       "north": "nothing",
@@ -54,6 +55,7 @@
     "name": "Lobby",
     "description": "You are in the dark lobby of the hospital. with a dim light east of room. You see a dimmly lit pepsimachine in the corner",
     "item": "nothing",
+    "story": "Screams seem to be coming form very back room of the hospital",
     "directions": {
       "north": "NorthHallway",
       "south": "Beach",
@@ -70,6 +72,7 @@
   "NorthHallway": {
     "name": "NorthHallway",
     "description": "You are walking down a long dirty hallway, you hear muffled voices in a distance.",
+    "story": "Screams are getting louder, it sounds like Larson",
     "item": "nothing",
     "directions": {
       "north": "NorthHall2",
@@ -88,6 +91,7 @@
     "name": "NorthHall2",
     "description": "You are in North Hallway 2, and you here voice coming from a unknown location.",
     "item": "nothing",
+    "story": "Screams are coming from next room, its definetly  Larson",
     "directions": {
       "north": "DoctorsOffice",
       "south": "NorthHallway",
@@ -120,8 +124,8 @@
   },
   "WaitingRoom": {
     "name": "WaitingRoom",
-    "description": "You see a bunch of chairs scattered across the room, \nthere is one upright chair in the center, with a sign that says I made it to an SDE and so can you. \nRight below the sign is the boat key." ,
-    "item": "boatkey",
+    "description": "You see a bunch of chairs scattered across the room, \nthere is one upright chair in the center, with a sign that says I made it to an SDE and so can you." ,
+    "item": "",
     "directions": {
       "north": "nothing",
       "south": "nothing",
@@ -137,7 +141,8 @@
   },
   "DoctorsOffice": {
     "name": "DoctorsOffice",
-    "description": "You enter the Doctors Office, \neverybody is panicking. You hear Larson say in confusion \n“Where is my Code. \nMy environment does not work, help a brother out.” \nDoctors look at you and ask, “Are you an SDE? \nDoc says his Junit is not imported and there are red lines everywhere.\nThere seems to be an error on line 14 Pepsi is not defined.\nCan you help? We are only doctors and understand human issues.”\n    * Use Pepsi\n    * Larson starts coming to remember the glory, the Java conventions, the concepts. You don't know what’s going on with him, but you are glad you helped a brother out. But you’ve got to get to the bachelor party, no time to hear Larson stumble through his thoughts. He asks if he can join you at the SDE bachelor Party, but you know the beach might be good thing for him if he has to get his environment working.\n",
+    "description": "You enter the Doctors Office.",
+    "story": "Everybody is panicking. You hear Larson say in confusion \n“Where is my Code. \nMy environment does not work, help a brother out.” \nDoctors look at you and ask, “Are you an SDE? \nDoc says his Junit is not imported and there are red lines everywhere.\nThere seems to be an error on line 14 Pepsi is not defined.\nCan you help? We are only doctors and understand human issues.”\n ",
     "item": "nothing",
     "directions": {
       "north": "nothing",

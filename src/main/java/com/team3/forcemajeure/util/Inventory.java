@@ -1,20 +1,22 @@
+package com.team3.forcemajeure.util;
+
 import java.util.ArrayList;
 
 public class Inventory {
 
 //    Variables
-    ArrayList<String> inventory = new ArrayList<>();
+    ArrayList<String> inventory;
 
 //    Constructor
     public Inventory(String item){
+        inventory = new ArrayList<>();
         inventory.add(item);
-
     }
+
 //     Getter and Settter
     public ArrayList<String> getInventory() {
         return inventory;
     }
-
     public void setInventory(ArrayList<String> inventory) {
         this.inventory = inventory;
     }
